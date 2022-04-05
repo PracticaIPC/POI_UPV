@@ -39,11 +39,7 @@ public class InicioSesionController implements Initializable {
     @FXML
     private Button continuarfxID;
     @FXML
-    private DatePicker fechafxID;
-    @FXML
-    private Button seleccionfxID;
-    @FXML
-    private ImageView imagenfxID;
+    private PasswordField contraseñafxID;
     
    
 
@@ -74,12 +70,9 @@ public class InicioSesionController implements Initializable {
     }
 
     @FXML
-    private void bFecha(ActionEvent event) {
+    private void bContraseña(ActionEvent event) {
     }
 
-    @FXML
-    private void bSelección(ActionEvent event) {
-    }
 
     
 }

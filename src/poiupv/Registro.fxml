@@ -78,7 +78,7 @@
                   <Insets left="10.0" right="20.0" />
                </GridPane.margin>
             </TextField>
-            <TextField promptText="Contraseña" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <TextField fx:id="contraseñafxID" promptText="Contraseña" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets left="10.0" right="20.0" />
                </GridPane.margin>
@@ -91,7 +91,7 @@
                   <Insets right="10.0" />
                </GridPane.margin>
             </Label>
-            <TextField promptText="Correo Electrónico" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <TextField fx:id="correofxID" onAction="#bCorreo" promptText="Correo Electrónico" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets left="10.0" right="20.0" />
                </GridPane.margin>
