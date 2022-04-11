@@ -41,7 +41,18 @@ public class PantallaInicialController implements Initializable {
     }    
 
     @FXML
-    private void bRegistro(ActionEvent event) {
+    private void bRegistro(ActionEvent event) throws IOException {
+        FXMLLoader loadder = new FXMLLoader(getClass().getResource("/poiupv/Registro.fxml"));
+        Parent root = loadder.load();
+        
+        //RegistroController controlador = loadder.getController();
+        
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Inicio Sesión");
     }
 
     @FXML

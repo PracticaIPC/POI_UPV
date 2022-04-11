@@ -39,7 +39,7 @@ public class InicioSesionController implements Initializable {
     @FXML
     private Button continuarfxID;
     @FXML
-    private PasswordField contraseñafxID;
+    private TextField contraseñafxID;
     
    
 
@@ -56,9 +56,6 @@ public class InicioSesionController implements Initializable {
     }
 
 
-    @FXML
-    private void bUsuario(ActionEvent event) {
-    }
 
 
     @FXML
@@ -69,9 +66,8 @@ public class InicioSesionController implements Initializable {
     private void bContinuar(ActionEvent event) {
     }
 
-    @FXML
-    private void bContraseña(ActionEvent event) {
-    }
+
+
 
 
     
