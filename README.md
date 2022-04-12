@@ -4,4 +4,4 @@ Añadir cosas:
 Add -> Commit -> Push
 
 Descargar cosas:
-Commit -> Push
+Commit -> Pull
