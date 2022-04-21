@@ -59,7 +59,21 @@ public class InicioSesionController implements Initializable {
 
 
     @FXML
-    private void bCancelar(ActionEvent event) {
+    private void bCancelar(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("PantallaInicial.fxml"));
+        Parent root = loader.load();
+        
+        PantallaInicialController controlador = loader.getController();
+        
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Pizarra de Navegación");
+        
+        Stage myStage = (Stage) this.cancelarfxID.getScene().getWindow();
+        myStage.close();
     }
 
     @FXML

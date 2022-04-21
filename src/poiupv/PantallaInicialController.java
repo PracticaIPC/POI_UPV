@@ -53,6 +53,9 @@ public class PantallaInicialController implements Initializable {
         stage.setScene(scene);
         stage.show();
         stage.setTitle("Inicio Sesión");
+        
+        Stage myStage = (Stage) this.registrofxID.getScene().getWindow();
+        myStage.close();
     }
 
     @FXML
@@ -68,6 +71,9 @@ public class PantallaInicialController implements Initializable {
         stage.setScene(scene);
         stage.show();
         stage.setTitle("Inicio Sesión");
+        
+        Stage myStage = (Stage) this.incioSesionfxID.getScene().getWindow();
+        myStage.close();
     }
 
     @FXML
