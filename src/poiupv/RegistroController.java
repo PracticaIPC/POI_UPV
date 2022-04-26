@@ -54,6 +54,8 @@ public class RegistroController implements Initializable {
     private ImageView imagenfxID;
     @FXML
     private Label InicioSesionfxID;
+    @FXML
+    private Label muestrafxID;
 
     /**
      * Initializes the controller class.
@@ -61,6 +63,8 @@ public class RegistroController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         InicioSesionfxID.setTextFill(Color.rgb(107, 207, 176));
+        muestrafxID.setTextFill(Color.GRAY);
+        muestrafxID.setVisible(false);
     }    
 
     @FXML
@@ -87,6 +91,12 @@ public class RegistroController implements Initializable {
 
     @FXML
     private void bMostrar(ActionEvent event) {
+        if(mostrarfxID.isSelected()){
+           muestrafxID.setVisible(true);
+           muestrafxID.textProperty().bind(contraseñafxID.textProperty());
+        }else if(!mostrarfxID.isSelected()){
+            muestrafxID.setVisible(false);
+        }
     }
 
     @FXML
