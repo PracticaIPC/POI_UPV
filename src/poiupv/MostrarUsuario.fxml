@@ -20,7 +20,8 @@
    <bottom>
       <HBox alignment="CENTER" prefHeight="70.0" prefWidth="408.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="cancelarfxID" mnemonicParsing="false" onAction="#bCancelar" text="Cancelar" />
+            <Button fx:id="cancelarfxID" mnemonicParsing="false" onAction="#bCancelar" text="Cerrar Sesión" />
+            <Button fx:id="modificarfxID" mnemonicParsing="false" onAction="#bModificar" text="Modificar Usuario" />
             <Button fx:id="continuarfxID" mnemonicParsing="false" onAction="#bContinuar" text="Continuar" />
          </children>
       </HBox>

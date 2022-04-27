@@ -52,7 +52,7 @@ public class PantallaInicialController implements Initializable {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(scene);
         stage.show();
-        stage.setTitle("Inicio Sesión");
+        stage.setTitle("Registrar Usuario");
         
         Stage myStage = (Stage) this.registrofxID.getScene().getWindow();
         myStage.close();

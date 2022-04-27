@@ -103,7 +103,7 @@ public class InicioSesionController implements Initializable {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(scene);
         stage.show();
-        stage.setTitle("Pizarra de Navegación");
+        stage.setTitle("Inicio");
         
         Stage myStage = (Stage) this.cancelarfxID.getScene().getWindow();
         myStage.close();
@@ -123,7 +123,7 @@ public class InicioSesionController implements Initializable {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.show();
-            stage.setTitle("Pizarra de Navegación");
+            stage.setTitle("Perfil de Usuario");
         
             Stage myStage = (Stage) this.continuarfxID.getScene().getWindow();
             myStage.close();

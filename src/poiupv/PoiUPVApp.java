@@ -26,7 +26,7 @@ public class PoiUPVApp extends Application {
         Parent root = (Parent) loader.load();
         
         Scene scene = new Scene(root);
-        stage.setTitle("Pizarra de Navegación");
+        stage.setTitle("Inicio");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

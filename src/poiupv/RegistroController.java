@@ -236,5 +236,6 @@ public class RegistroController implements Initializable {
     private void arrastreInicio(MouseEvent event) {
         InicioSesionfxID.setTextFill(Color.rgb(36, 73, 62));
     }
+
     
 }

@@ -6,16 +6,22 @@
 package poiupv;
 
 import DBAccess.NavegacionDAOException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import model.Navegacion;
 import model.User;
 
@@ -38,6 +44,8 @@ public class MostrarUsuarioController implements Initializable {
     public static String user;
     
     Navegacion BaseDatos;
+    @FXML
+    private Button modificarfxID;
 
     /**
      * Initializes the controller class.
@@ -56,11 +64,29 @@ public class MostrarUsuarioController implements Initializable {
     }    
 
     @FXML
-    private void bCancelar(ActionEvent event) {
+    private void bCancelar(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("PantallaInicial.fxml"));
+        Parent root = loader.load();
+        
+        PantallaInicialController controlador = loader.getController();
+        
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Inicio");
+        
+        Stage myStage = (Stage) this.cancelarfxID.getScene().getWindow();
+        myStage.close();
     }
 
     @FXML
     private void bContinuar(ActionEvent event) {
+    }
+
+    @FXML
+    private void bModificar(ActionEvent event) {
     }
     
 }
