@@ -7,6 +7,9 @@ package poiupv;
 
 import DBAccess.NavegacionDAO;
 import DBAccess.NavegacionDAOException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -26,10 +29,12 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Navegacion;
@@ -69,6 +74,8 @@ public class RegistroController implements Initializable {
     private Label muestrafxID;
     
     Navegacion BaseDatos;
+    
+    final FileChooser fileChooser = new FileChooser();
     
 
     /**
@@ -186,7 +193,18 @@ public class RegistroController implements Initializable {
     }
 
     @FXML
-    private void bSelección(ActionEvent event) {
+    private void bSelección(ActionEvent event) throws IOException, FileNotFoundException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Registro.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        
+        File file = fileChooser.showOpenDialog(stage);
+        
+        if(file.isFile() && (file.getName().contains(".jpg") || file.getName().contains(".png") || file.getName().contains(".bmp") || file.getName().contains(".gif"))){
+            Image avatar = new Image(new FileInputStream(file));
+            imagenfxID.imageProperty().setValue(avatar);
+        }
     }
 
     @FXML
