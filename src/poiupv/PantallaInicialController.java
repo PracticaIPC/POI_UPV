@@ -30,7 +30,7 @@ public class PantallaInicialController implements Initializable {
     @FXML
     private Button incioSesionfxID;
     @FXML
-    private Button invitadofxID;
+    private Button salirfxID;
 
     /**
      * Initializes the controller class.
@@ -77,7 +77,9 @@ public class PantallaInicialController implements Initializable {
     }
 
     @FXML
-    private void bInvitado(ActionEvent event) {
+    private void bSalir(ActionEvent event) {
+        Stage myStage= (Stage) this.salirfxID.getScene().getWindow();
+        myStage.close();
     }
     
 }

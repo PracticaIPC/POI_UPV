@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="371.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poiupv.PantallaInicialController">
    <top>
       <HBox alignment="CENTER" prefHeight="54.0" prefWidth="371.0" BorderPane.alignment="CENTER">
@@ -24,7 +23,7 @@
          <children>
             <Button fx:id="registrofxID" mnemonicParsing="false" onAction="#bRegistro" text="Registro" />
             <Button fx:id="incioSesionfxID" mnemonicParsing="false" onAction="#bInicioSesion" text="Inciar Sesión" />
-            <Button fx:id="invitadofxID" mnemonicParsing="false" onAction="#bInvitado" text="Invitado" />
+            <Button fx:id="salirfxID" mnemonicParsing="false" onAction="#bSalir" text="Salir" />
          </children>
       </HBox>
    </center>

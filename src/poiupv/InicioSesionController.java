@@ -5,15 +5,21 @@
  */
 package poiupv;
 
+import DBAccess.NavegacionDAO;
+import DBAccess.NavegacionDAOException;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
@@ -25,6 +31,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.Navegacion;
+import model.User;
 
 /**
  * FXML Controller class
@@ -48,7 +56,8 @@ public class InicioSesionController implements Initializable {
     @FXML
     private Label muestrafxID;
     
-   
+    Navegacion BaseDatos;
+    User usuario;
 
     /**
      * Initializes the controller class.
@@ -58,7 +67,14 @@ public class InicioSesionController implements Initializable {
         muestrafxID.setTextFill(Color.GRAY);
         registrofxID.setTextFill(Color.rgb(107, 207, 176));
         muestrafxID.setVisible(false);
-        // TODO
+        
+        try {
+            BaseDatos = Navegacion.getSingletonNavegacion();
+            //BaseDatos.registerUser("Fran", "fran@upv.es", "hola21", LocalDate.MIN);
+            // TODO
+        } catch (NavegacionDAOException ex) {
+            Logger.getLogger(InicioSesionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }    
 
     @FXML
@@ -94,7 +110,33 @@ public class InicioSesionController implements Initializable {
     }
 
     @FXML
-    private void bContinuar(ActionEvent event) {
+    private void bContinuar(ActionEvent event) throws IOException {
+        if((BaseDatos.loginUser(usuariofxID.getText(), contraseñafxID.getText())) != null){
+            
+            MostrarUsuarioController.user = usuariofxID.getText();
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("MostrarUsuario.fxml"));
+            Parent root = loader.load();
+            
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.show();
+            stage.setTitle("Pizarra de Navegación");
+        
+            Stage myStage = (Stage) this.continuarfxID.getScene().getWindow();
+            myStage.close();
+            
+            
+            
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("Fallo Inicio Sesión");
+            alert.setContentText("Usuario o Contraseña incorrecto");
+            alert.showAndWait();
+        }
     }
 
     @FXML
