@@ -142,11 +142,7 @@
             </HBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <children>
-                  <Label fx:id="informacionfxID" onMouseClicked="#bInformacion" onMouseEntered="#arrastreInicio" onMouseExited="#finInicio" text="Información" textFill="#32a3ba">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
+                  <Button fx:id="informacionfxID" mnemonicParsing="false" onAction="#bInformacion" text="Informacion" />
                </children>
             </VBox>
          </children>

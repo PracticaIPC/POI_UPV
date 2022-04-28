@@ -86,7 +86,19 @@ public class MostrarUsuarioController implements Initializable {
     }
 
     @FXML
-    private void bModificar(ActionEvent event) {
+    private void bModificar(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ModificarUsuario.fxml"));
+            Parent root = loader.load();
+            
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.show();
+            stage.setTitle("ModificarUsuario");
+        
+            Stage myStage = (Stage) this.continuarfxID.getScene().getWindow();
+            myStage.close();
     }
     
 }
