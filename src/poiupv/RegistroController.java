@@ -155,6 +155,7 @@ public class RegistroController implements Initializable {
                    alert.setTitle("Error");
                    alert.setContentText("Un usuario es valido si: \n" + "- tiene entre 6 y 15 caracteres \n"
                                         + "- contiene mayusculas y minusculas, números o los guiones '-' y '_'.");
+                   alert.setResizable(true);
                    alert.showAndWait();
         }
         
