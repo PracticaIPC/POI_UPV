@@ -82,7 +82,19 @@ public class MostrarUsuarioController implements Initializable {
     }
 
     @FXML
-    private void bContinuar(ActionEvent event) {
+    private void bContinuar(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CartaNavegacion.fxml"));
+            Parent root = loader.load();
+            
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.show();
+            stage.setTitle("Carta Navegación");
+        
+            Stage myStage = (Stage) this.continuarfxID.getScene().getWindow();
+            myStage.close();
     }
 
     @FXML
@@ -97,7 +109,7 @@ public class MostrarUsuarioController implements Initializable {
             stage.show();
             stage.setTitle("ModificarUsuario");
         
-            Stage myStage = (Stage) this.continuarfxID.getScene().getWindow();
+            Stage myStage = (Stage) this.modificarfxID.getScene().getWindow();
             myStage.close();
     }
     

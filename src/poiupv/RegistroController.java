@@ -174,7 +174,8 @@ public class RegistroController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
                    alert.setHeaderText("Correo no Válido");
                    alert.setTitle("Error");
-                   alert.setContentText("El dato proporcionado no corresponde con una cuenta de correo válida. Por ejemplo: \n" + "ejemplo@mail.com");
+                   alert.setContentText("El dato proporcionado no corresponde con una cuenta de correo válida. Por ejemplo:" + "\n" +
+                           "ejemplo@mail.com\n");
                    alert.showAndWait();
         }
     }
