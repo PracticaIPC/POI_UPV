@@ -45,7 +45,7 @@
             <VBox alignment="TOP_CENTER" maxWidth="123.0" prefHeight="307.0" prefWidth="123.0" spacing="10.0">
                <children>
                   <Button fx:id="puntofxID" mnemonicParsing="false" onAction="#bPunto" text="Punto" />
-                  <Button fx:id="lineafxID" mnemonicParsing="false" onAction="#bLinea" text="Linea" />
+                  <Button fx:id="lineafxID" mnemonicParsing="false" onAction="#bLinea" onMouseDragged="#lineaDragged" onMousePressed="#lineaPressed" text="Linea" />
                   <Button fx:id="arcofxID" mnemonicParsing="false" onAction="#bArco" text="Arco" />
                   <Button fx:id="textofxID" mnemonicParsing="false" onAction="#bTexto" text="Texto" />
                </children>
@@ -55,9 +55,9 @@
             </VBox>
             <ScrollPane fx:id="map_scrollpane" prefHeight="200.0" prefWidth="200.0">
                <content>
-                  <Pane prefHeight="473.0" prefWidth="622.0">
+                  <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                      <children>
-                        <ImageView fx:id="imagenfxID" fitHeight="2880.0" fitWidth="4480.0" pickOnBounds="true">
+                        <ImageView fx:id="imagenfxID" fitHeight="2880.0" fitWidth="4480.0" onMouseDragged="#mouseDragged" onMousePressed="#mousePressed" pickOnBounds="true">
                            <image>
                               <Image url="@../resources/carta_nautica.jpg" />
                            </image>
