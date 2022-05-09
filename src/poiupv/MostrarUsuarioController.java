@@ -83,7 +83,7 @@ public class MostrarUsuarioController implements Initializable {
 
     @FXML
     private void bContinuar(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("CartaNavegacion.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Test.fxml"));
             Parent root = loader.load();
             
             Scene scene = new Scene(root);
@@ -91,7 +91,7 @@ public class MostrarUsuarioController implements Initializable {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.show();
-            stage.setTitle("Carta Navegación");
+            stage.setTitle("Test");
         
             Stage myStage = (Stage) this.continuarfxID.getScene().getWindow();
             myStage.close();

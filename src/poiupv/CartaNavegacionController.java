@@ -152,7 +152,7 @@ public class CartaNavegacionController implements Initializable {
 
     @FXML
     private void bPunto(ActionEvent event) {
-        pintar = 1;
+       pintar = 1;
         linePainting.setOnContextMenuRequested(e -> {
             ContextMenu menuContext = new ContextMenu();
             MenuItem borrarItem = new MenuItem("eliminar");
@@ -168,17 +168,17 @@ public class CartaNavegacionController implements Initializable {
 
     @FXML
     private void bLinea(ActionEvent event) {
-        pintar = 2;
+        //pintar = 2;
     }
 
     @FXML
     private void bArco(ActionEvent event) {
-        pintar = 3;
+       // pintar = 3;
     }
 
     @FXML
     private void bTexto(ActionEvent event) {
-        pintar = 4;
+       // pintar = 4;
     }
 
     private void initData() {
