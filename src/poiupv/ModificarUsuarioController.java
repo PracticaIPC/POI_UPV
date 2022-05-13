@@ -112,7 +112,7 @@ public class ModificarUsuarioController implements Initializable {
     }
 
     @FXML
-      private void bContinuar(ActionEvent event) throws IOException {
+      private void bContinuar(ActionEvent event) throws IOException, NavegacionDAOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Test.fxml"));
             Parent root = loader.load();
             
@@ -123,6 +123,11 @@ public class ModificarUsuarioController implements Initializable {
             stage.show();
             stage.setTitle("Test");
         
+            BaseDatos.getUser(usuariofxID.getText()).setEmail(correofxID.getText());
+            BaseDatos.getUser(usuariofxID.getText()).setPassword(contraseñafxID.getText());
+            BaseDatos.getUser(usuariofxID.getText()).setAvatar(imagenfxID.getImage());
+           BaseDatos.getUser(usuariofxID.getText()).setBirthdate(fechafxID.getValue());
+           
             Stage myStage = (Stage) this.continuarfxID.getScene().getWindow();
             myStage.close();
     }
