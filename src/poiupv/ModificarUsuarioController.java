@@ -112,9 +112,22 @@ public class ModificarUsuarioController implements Initializable {
     }
 
     @FXML
-    private void bContinuar(ActionEvent event) {
+      private void bContinuar(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Test.fxml"));
+            Parent root = loader.load();
+            
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.show();
+            stage.setTitle("Test");
+        
+            Stage myStage = (Stage) this.continuarfxID.getScene().getWindow();
+            myStage.close();
     }
 
+  
 
     @FXML
     private void bFecha(ActionEvent event) {
@@ -148,8 +161,8 @@ public class ModificarUsuarioController implements Initializable {
     @FXML
     private void bInformacion(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                   alert.setHeaderText("Información");
-                   alert.setTitle("Información");
+                   alert.setHeaderText("hola");
+                   alert.setTitle("adios");
                    alert.setContentText("Puede modificar todos los datos menos el nombre de usuario. \n" + 
                            "Solo modifique los datos que desea cambiar\n" + 
                            "Si no desea modificar algún dato déjelo como sale al iniciar la ventana");
