@@ -46,6 +46,8 @@ public class MostrarUsuarioController implements Initializable {
     Navegacion BaseDatos;
     @FXML
     private Button modificarfxID;
+    @FXML
+    private Button resultadosfxID;
 
     /**
      * Initializes the controller class.
@@ -111,6 +113,20 @@ public class MostrarUsuarioController implements Initializable {
         
             Stage myStage = (Stage) this.modificarfxID.getScene().getWindow();
             myStage.close();
+    }
+
+    @FXML
+    private void bResultados(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MostrarResultados.fxml"));
+        Parent root = loader.load();
+        
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Resultados");
+        
     }
     
 }

@@ -34,6 +34,8 @@ import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Navegacion;
+import model.User;
+import model.Session;
 
 import static model.User.checkEmail;
 import static model.User.checkNickName;
