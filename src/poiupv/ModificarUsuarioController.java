@@ -113,7 +113,7 @@ public class ModificarUsuarioController implements Initializable {
 
     @FXML
       private void bContinuar(ActionEvent event) throws IOException, NavegacionDAOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Test.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MostrarUsuario.fxml"));
             Parent root = loader.load();
             
             Scene scene = new Scene(root);
@@ -121,7 +121,7 @@ public class ModificarUsuarioController implements Initializable {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.show();
-            stage.setTitle("Test");
+            stage.setTitle("Perfil");
         
             BaseDatos.getUser(usuariofxID.getText()).setEmail(correofxID.getText());
             BaseDatos.getUser(usuariofxID.getText()).setPassword(contraseñafxID.getText());
