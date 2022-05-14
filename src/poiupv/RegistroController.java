@@ -77,6 +77,8 @@ public class RegistroController implements Initializable {
     
     final FileChooser fileChooser = new FileChooser();
     
+    
+    
 
     /**
      * Initializes the controller class.

@@ -7,9 +7,14 @@ package poiupv;
 
 import DBAccess.NavegacionDAOException;
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ChangeListener;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -52,6 +57,11 @@ public class MostrarResultadosController implements Initializable {
     
     @FXML
     private CheckBox todosfxID;
+    
+    private ObservableList <Session> partida;
+    
+    LocalDateTime time;
+    Session sesion;
 
     /**
      * Initializes the controller class.
@@ -60,13 +70,18 @@ public class MostrarResultadosController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         try {
             BaseDatos = Navegacion.getSingletonNavegacion();
-            // TODO
+            BaseDatos.getUser(usuariofxID.getText()).addSession(sesion);
         } catch (NavegacionDAOException ex) {
             Logger.getLogger(MostrarUsuarioController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         usuariofxID.setText(BaseDatos.getUser(MostrarUsuarioController.user).getNickName());
         avatarfxID.setImage(BaseDatos.getUser(MostrarUsuarioController.user).getAvatar());
+        
+        partida = FXCollections.observableArrayList(BaseDatos.getUser(usuariofxID.getText()).getSessions());
+        
+        this.tablafxID.setItems(partida);
+        
         
     }    
 
