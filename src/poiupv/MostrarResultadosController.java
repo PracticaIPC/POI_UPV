@@ -7,8 +7,11 @@ package poiupv;
 
 import DBAccess.NavegacionDAOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,6 +27,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import model.Navegacion;
@@ -46,11 +50,9 @@ public class MostrarResultadosController implements Initializable {
     @FXML
     private TableView<Session> tablafxID;
     @FXML
-    private TableColumn<Session, String> partidafxID;
+    private TableColumn<String, String> partidafxID;
     @FXML
-    private TableColumn<Session, String> aciertosfxID;
-    @FXML
-    private TableColumn<Session, String> totalfxID;
+    private TableColumn<String, String> aciertosfxID;
     @FXML
     private Button volverfxID;
     Navegacion BaseDatos;
@@ -58,10 +60,13 @@ public class MostrarResultadosController implements Initializable {
     @FXML
     private CheckBox todosfxID;
     
-    private ObservableList <Session> partida;
+    private ObservableList <Session> partida = null; 
     
     LocalDateTime time;
-    Session sesion;
+    Session sesion = new Session(LocalDateTime.of(LocalDate.ofYearDay(2022, 100), LocalTime.of(12, 32)), 17, 8);
+    @FXML
+    private TableColumn<String, String> fallosfxID;
+    private ArrayList<Session> array = new ArrayList<>();
 
     /**
      * Initializes the controller class.
@@ -70,16 +75,18 @@ public class MostrarResultadosController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         try {
             BaseDatos = Navegacion.getSingletonNavegacion();
-            BaseDatos.getUser(usuariofxID.getText()).addSession(sesion);
+            BaseDatos.getUser(MostrarUsuarioController.user).addSession(sesion);
         } catch (NavegacionDAOException ex) {
             Logger.getLogger(MostrarUsuarioController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        this.partidafxID.setCellValueFactory(new PropertyValueFactory("timeStamp"));
+        this.aciertosfxID.setCellValueFactory(new PropertyValueFactory("hits"));
+        this.fallosfxID.setCellValueFactory(new PropertyValueFactory("faults"));
         usuariofxID.setText(BaseDatos.getUser(MostrarUsuarioController.user).getNickName());
         avatarfxID.setImage(BaseDatos.getUser(MostrarUsuarioController.user).getAvatar());
-        
-        partida = FXCollections.observableArrayList(BaseDatos.getUser(usuariofxID.getText()).getSessions());
-        
+        tablafxID.setItems(partida);
+        partida = FXCollections.observableArrayList(BaseDatos.getUser(MostrarUsuarioController.user).getSessions());
         this.tablafxID.setItems(partida);
         
         
@@ -99,6 +106,27 @@ public class MostrarResultadosController implements Initializable {
             
         }
         
+    }
+
+    @FXML
+    private void bFecha(ActionEvent event) {
+        partida.clear();
+        ArrayList<Session> prueba = new ArrayList<Session>();
+        array = new ArrayList<> (BaseDatos.getUser(MostrarUsuarioController.user).getSessions());
+        array.forEach((Session)->{
+            if(Session.getLocalDate().compareTo(this.fecha.getValue()) >= 0){
+            }
+            //Collections.reverse(prueba);
+            partida = FXCollections.observableArrayList(prueba);
+        });
+    }
+    
+    private String escribirHora(LocalDateTime hora){
+        if(hora.getMinute() < 10){
+            return hora.getHour() + ":0" + hora.getMinute() ;
+        }else{
+        return hora.getHour() + ":" + hora.getMinute() ;}
+    
     }
     
 }

@@ -22,7 +22,7 @@
                </children>
             </VBox>
             <Label prefHeight="35.0" prefWidth="174.0" text="Mostrar Resultados a partir de: " wrapText="true" />
-            <DatePicker fx:id="fecha" />
+            <DatePicker fx:id="fecha" onAction="#bFecha" />
             <CheckBox fx:id="todosfxID" mnemonicParsing="false" onAction="#bTodos" prefHeight="34.0" prefWidth="126.0" text="Mostrar Todos los Resultados" wrapText="true" />
          </children>
          <VBox.margin>
@@ -33,7 +33,7 @@
         <columns>
           <TableColumn fx:id="partidafxID" prefWidth="75.0" text="Partida" />
           <TableColumn fx:id="aciertosfxID" prefWidth="75.0" text="Aciertos" />
-            <TableColumn fx:id="totalfxID" prefWidth="104.79991149902344" text="Total Preguntas" />
+            <TableColumn fx:id="fallosfxID" prefWidth="104.79991149902344" text="Total Preguntas" />
         </columns>
          <VBox.margin>
             <Insets left="20.0" right="20.0" />
