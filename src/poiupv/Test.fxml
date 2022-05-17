@@ -23,7 +23,10 @@
             <MenuBar>
               <menus>
                 <Menu fx:id="cartaNavegacionfxID" mnemonicParsing="false" onAction="#bCartaNavegación" text="Carta de navegacion" />
-                <Menu fx:id="FinalizarfxID" mnemonicParsing="false" onAction="#bFinalizar" text="Finalizar" />
+                <Menu mnemonicParsing="false" text="Finalizar">
+                     <items>
+                        <MenuItem fx:id="FinalizarfxID" mnemonicParsing="false" onAction="#bFinalizar" text="Finalizar" />
+                     </items></Menu>
                 <Menu fx:id="cambiarUsuariofxID" mnemonicParsing="false" onAction="#bCambiarUsuario" text="Cambiar de usuario" />
                   <Menu fx:id="infofxID" mnemonicParsing="false" onAction="#bInfo" text="Info">
                     <items>

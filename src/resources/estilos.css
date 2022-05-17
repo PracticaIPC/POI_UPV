@@ -45,10 +45,13 @@
  ******************************************************************************/
 
 .contrast {
-    -app-color-hi: #5bf900;
+    -app-color-hi: white;
     -app-color-lo: black;
     -app-hover: #666666;
-    -fx-background-color: -app-color-lo;
+    -app-color-1: rgb(32, 33, 36);
+    -app-color-2: rgb(41, 41, 49);
+    -app-color-3: rgb(106, 204, 172);
+    -fx-background-color: -app-color-1;
 }
 
 /*-------------------------- map pin ------------------------- */
@@ -75,7 +78,7 @@ S17.642,20.762,13.558,20.762z";
 .contrast .button,
 .contrast .toggle-button {
     -fx-text-fill: -app-color-hi;
-    -fx-background-color: -app-color-hi, -app-color-lo;
+    -fx-background-color: -app-color-2, -app-color-1;
     -fx-background-insets: 0, 2;
     -fx-background-radius: 2, 1;
 }
@@ -171,4 +174,17 @@ S17.642,20.762,13.558,20.762z";
 }
 .contrast .split-pane > .split-pane-divider {
     -fx-background-color: -app-color-lo;
+}
+
+.contrast .enlace {
+    -fx-text-fill: -app-color-3;
+}
+
+.contrast .text-field {
+    -fx-background-color: gray;
+    -fx-text-fill: black;
+}
+
+.contrast .mostrar {
+    -fx-text-fill: gray;
 }

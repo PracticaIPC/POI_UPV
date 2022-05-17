@@ -75,7 +75,7 @@ public class MostrarResultadosController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         try {
             BaseDatos = Navegacion.getSingletonNavegacion();
-            BaseDatos.getUser(MostrarUsuarioController.user).addSession(sesion);
+            //BaseDatos.getUser(MostrarUsuarioController.user).addSession(sesion);
         } catch (NavegacionDAOException ex) {
             Logger.getLogger(MostrarUsuarioController.class.getName()).log(Level.SEVERE, null, ex);
         }

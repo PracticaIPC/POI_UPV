@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="419.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poiupv.InicioSesionController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="419.0" styleClass="contrast" stylesheets="@../resources/estilos.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poiupv.InicioSesionController">
    <top>
       <HBox alignment="CENTER" prefHeight="56.0" prefWidth="370.0" BorderPane.alignment="CENTER">
          <children>
@@ -59,15 +59,15 @@
                   <Insets left="10.0" right="20.0" />
                </GridPane.margin>
             </PasswordField>
-            <TextField fx:id="usuariofxID" promptText="Nombre de Usuario" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <TextField fx:id="usuariofxID" promptText="Nombre de Usuario" styleClass="arrow-button" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets left="10.0" right="20.0" />
                </GridPane.margin>
             </TextField>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <children>
-                  <Label fx:id="muestrafxID" text="label" />
-                  <CheckBox fx:id="mostrarfxID" mnemonicParsing="false" onAction="#bMostrar" text="Mostrar Contraseña">
+                  <Label fx:id="muestrafxID" styleClass="mostrar" text="label" />
+                  <CheckBox fx:id="mostrarfxID" mnemonicParsing="false" onAction="#bMostrar" styleClass="label" text="Mostrar Contraseña">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -99,7 +99,7 @@
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <children>
                   <Label text="¿No tienes usuario?" />
-                  <Label fx:id="registrofxID" onMouseClicked="#bRegistro" onMouseEntered="#arrastreInicio" onMouseExited="#finInicio" text="Registro" textFill="#38b7ca">
+                  <Label fx:id="registrofxID" onMouseClicked="#bRegistro" onMouseEntered="#arrastreInicio" onMouseExited="#finInicio" styleClass="enlace" text="Registro" textFill="#38b7ca">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>

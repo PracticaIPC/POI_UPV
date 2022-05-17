@@ -6,21 +6,30 @@
 package poiupv;
 
 import DBAccess.NavegacionDAOException;
+import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import model.Navegacion;
+import model.Session;
 
 /**
  * FXML Controller class
@@ -57,13 +66,16 @@ public class TestController implements Initializable {
     Random rnd = new Random();
     int  i = rnd.nextInt(17) + 1;
     @FXML
-    private Menu FinalizarfxID;
+    private MenuItem FinalizarfxID;
     @FXML
     private Menu infofxID;
     @FXML
     private Button comprobarfxID;
     @FXML
     private Label resultfxID;
+    
+    int aciertos = 0;
+    int fallos = 0;
 
     /**
      * Initializes the controller class.
@@ -102,6 +114,31 @@ public class TestController implements Initializable {
 
     @FXML
     private void bSiguientePregunta(ActionEvent event) {
+        resp1fxID.setSelected(false);
+        resp2fxID.setSelected(false);
+        resp3fxID.setSelected(false);
+        resp4fxID.setSelected(false);
+        
+        comprobarfxID.setDisable(false);
+        
+        resp1fxID.setTextFill(Color.BLACK);
+        resp2fxID.setTextFill(Color.BLACK);
+        resp3fxID.setTextFill(Color.BLACK);
+        resp4fxID.setTextFill(Color.BLACK);
+        int j = rnd.nextInt(17)  +1;
+        
+        if(j == i){
+            j = rnd.nextInt(17) + 1;
+        }else{
+            preguntafxID.setText(BaseDatos.getProblems().get(j).getText());
+            resp1fxID.setText(BaseDatos.getProblems().get(j).getAnswers().get(0).getText());
+            resp2fxID.setText(BaseDatos.getProblems().get(j).getAnswers().get(1).getText());
+            resp3fxID.setText(BaseDatos.getProblems().get(j).getAnswers().get(2).getText());
+            resp4fxID.setText(BaseDatos.getProblems().get(j).getAnswers().get(3).getText());
+        }
+        
+        
+        
     }
 
     @FXML
@@ -151,7 +188,29 @@ public class TestController implements Initializable {
     }
 
     @FXML
-    private void bFinalizar(ActionEvent event) {
+    private void bFinalizar(ActionEvent event) throws NavegacionDAOException, IOException {
+        Session sesion = new Session(LocalDateTime.now(), aciertos, fallos);
+        BaseDatos.getUser(MostrarUsuarioController.user).addSession(sesion);
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MostrarUsuario.fxml"));
+            Parent root = loader.load();
+            
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.show();
+            stage.setTitle("ModificarUsuario");
+            
+            Stage myStage = (Stage) this.comprobarfxID.getScene().getWindow();
+            myStage.close();
+        
+            /*FXMLLoader asd = new FXMLLoader(getClass().getResource("Test.fxml"));
+            Parent root2 = asd.load();
+            
+            Scene scene2 = new Scene(root2);
+            Stage stage2 = new Stage();
+            stage2.close();*/
     }
 
     @FXML
@@ -162,6 +221,7 @@ public class TestController implements Initializable {
     private void bComprobar(ActionEvent event) {
         if(resultado == false){
             resultfxID.setText("Incorrecto");
+            fallos += 1;
             if(resp4fxID.isSelected()){
                 resp4fxID.setTextFill(Color.RED);
                 if(BaseDatos.getProblems().get(i).getAnswers().get(0).getValidity() == true){
@@ -204,6 +264,7 @@ public class TestController implements Initializable {
             }
         }else{
             resultfxID.setText("Correcto");
+            aciertos += 1;
             if(resp4fxID.isSelected()){
                 resp4fxID.setTextFill(Color.GREEN);
             }
