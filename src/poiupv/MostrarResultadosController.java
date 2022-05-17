@@ -56,6 +56,7 @@ public class MostrarResultadosController implements Initializable {
     @FXML
     private Button volverfxID;
     Navegacion BaseDatos;
+    LocalDate local;
     
     @FXML
     private CheckBox todosfxID;
@@ -90,6 +91,7 @@ public class MostrarResultadosController implements Initializable {
         this.tablafxID.setItems(partida);
         
         
+        
     }    
 
     @FXML
@@ -100,25 +102,41 @@ public class MostrarResultadosController implements Initializable {
 
     @FXML
     private void bTodos(ActionEvent event) {
+        
         if(todosfxID.isSelected()){
+            tablafxID.setItems(partida);
+            fecha.setDisable(true);
             
         }else{
-            
+            fecha.setValue(null);
+            fecha.setDisable(false);        
         }
         
     }
 
     @FXML
     private void bFecha(ActionEvent event) {
-        partida.clear();
-        ArrayList<Session> prueba = new ArrayList<Session>();
+        /*ArrayList<Session> prueba = new ArrayList<Session>();
         array = new ArrayList<> (BaseDatos.getUser(MostrarUsuarioController.user).getSessions());
         array.forEach((Session)->{
             if(Session.getLocalDate().compareTo(this.fecha.getValue()) >= 0){
             }
             //Collections.reverse(prueba);
             partida = FXCollections.observableArrayList(prueba);
-        });
+        });*/
+        ObservableList<Session> obje = FXCollections.observableArrayList();
+        for(Session item : this.partida){
+                    if(item.getLocalDate().compareTo(fecha.getValue()) >= 0){
+                        
+                        obje.add(item);
+                        
+                        
+                    }else{
+                       
+                    }
+                }
+        
+        tablafxID.setItems(obje);
     }
     
     private String escribirHora(LocalDateTime hora){

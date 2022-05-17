@@ -205,7 +205,7 @@ public class RegistroController implements Initializable {
         
         File file = fileChooser.showOpenDialog(stage);
         
-        if(file.isFile() && (file.getName().contains(".jpg") || file.getName().contains(".png") || file.getName().contains(".bmp") || file.getName().contains(".gif"))){
+        if(file.isFile() && (file.getName().contains(".jpg") || file.getName().contains(".png"))){
             Image avatar = new Image(new FileInputStream(file));
             imagenfxID.imageProperty().setValue(avatar);
         }

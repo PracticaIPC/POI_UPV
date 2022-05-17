@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="359.0" prefWidth="497.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poiupv.ModificarUsuarioController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="359.0" prefWidth="497.0" styleClass="contrast" stylesheets="@../resources/estilos.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poiupv.ModificarUsuarioController">
    <top>
       <HBox alignment="CENTER" prefHeight="46.0" prefWidth="498.0" BorderPane.alignment="CENTER">
          <children>
@@ -110,8 +110,8 @@
             </HBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="3.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <children>
-                  <Label fx:id="muestrafxID" text="Label" />
-                  <CheckBox fx:id="mostrarfxID" mnemonicParsing="false" onAction="#bMostrar" text="Mostrar Contraseña">
+                  <Label fx:id="muestrafxID" styleClass="mostrar" text="Label" />
+                  <CheckBox fx:id="mostrarfxID" mnemonicParsing="false" onAction="#bMostrar" styleClass="label" text="Mostrar Contraseña">
                      <font>
                         <Font size="13.0" />
                      </font>

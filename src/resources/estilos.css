@@ -188,3 +188,26 @@ S17.642,20.762,13.558,20.762z";
 .contrast .mostrar {
     -fx-text-fill: gray;
 }
+
+.contrast .table-column {
+    -fx-background-color: -app-color-1;
+    -fx-text-fill: white;
+}
+
+.contrast .table-view {
+    -fx-background-color: gray;
+    -fx-text-fill: white;
+}
+
+.contrast .table-view .table-cell {
+    -fx-background-color: gray;
+
+}
+.contrast .table-view .table-cell:selected{
+    -fx-background-color: -app-color-3;
+    -fx-text-fill: white;
+}
+.contrast .table-cell:selected:filled:hover {
+    -fx-background-color: -app-color-3;
+    -fx-text-fill: white;
+}
