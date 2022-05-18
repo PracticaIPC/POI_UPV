@@ -22,7 +22,10 @@
          <children>
             <MenuBar>
               <menus>
-                <Menu fx:id="cartaNavegacionfxID" mnemonicParsing="false" onAction="#bCartaNavegación" text="Carta de navegacion" />
+                <Menu mnemonicParsing="false" text="Carta de navegacion">
+                     <items>
+                        <MenuItem fx:id="cartaNavegacionfxID" mnemonicParsing="false" onAction="#bCartaNavegación" text="Carta Navegación" />
+                     </items></Menu>
                 <Menu mnemonicParsing="false" text="Finalizar">
                      <items>
                         <MenuItem fx:id="FinalizarfxID" mnemonicParsing="false" onAction="#bFinalizar" text="Finalizar" />

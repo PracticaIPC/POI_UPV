@@ -45,7 +45,7 @@ public class TestController implements Initializable {
     @FXML
     private Menu cambiarUsuariofxID;
     @FXML
-    private Menu cartaNavegacionfxID;
+    private MenuItem cartaNavegacionfxID;
     @FXML
     private Button siguientePreguntafxID;
     @FXML
@@ -109,7 +109,20 @@ public class TestController implements Initializable {
     }
 
     @FXML
-    private void bCartaNavegación(ActionEvent event) {
+    private void bCartaNavegación(ActionEvent event) throws IOException {
+        Session sesion = new Session(LocalDateTime.now(), aciertos, fallos);
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CartaNavegacion.fxml"));
+            Parent root = loader.load();
+            
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.showAndWait();
+            stage.setTitle("Carta de Navegacion");
+            
+        
     }
 
     @FXML
