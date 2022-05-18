@@ -57,8 +57,6 @@ public class CartaNavegacionController implements Initializable {
     @FXML
     private MenuButton menu_pin;
     @FXML
-    private ListView<?> listafxID;
-    @FXML
     private Label posicionfxID;
     
     Line linePainting = new Line();

@@ -3,22 +3,21 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Slider?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="578.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poiupv.CartaNavegacionController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="578.0" scaleShape="false" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poiupv.CartaNavegacionController">
    <children>
       <HBox alignment="CENTER" maxHeight="42.0" prefHeight="42.0" prefWidth="578.0" spacing="10.0">
          <children>
@@ -40,9 +39,9 @@
             <Button mnemonicParsing="false" onAction="#zoomIn" text="+" />
          </children>
       </HBox>
-      <SplitPane dividerPositions="0.2272727272727273, 0.7095766828591257">
-        <items>
-            <VBox alignment="TOP_CENTER" maxWidth="123.0" prefHeight="307.0" prefWidth="123.0" spacing="10.0">
+      <BorderPane scaleShape="false">
+         <left>
+            <VBox alignment="CENTER" maxWidth="123.0" prefHeight="307.0" prefWidth="118.0" scaleShape="false" spacing="10.0" BorderPane.alignment="CENTER">
                <children>
                   <Button fx:id="puntofxID" mnemonicParsing="false" onAction="#bPunto" text="Punto" />
                   <Button fx:id="lineafxID" mnemonicParsing="false" onAction="#bLinea" text="Linea" />
@@ -53,13 +52,15 @@
                   <Insets top="20.0" />
                </padding>
             </VBox>
-            <ScrollPane fx:id="map_scrollpane" prefHeight="200.0" prefWidth="200.0">
+         </left>
+         <center>
+            <ScrollPane fx:id="map_scrollpane" prefHeight="200.0" prefWidth="200.0" scaleShape="false" BorderPane.alignment="CENTER">
                <content>
                   <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseDragged="#mouseDragged" onMousePressed="#mousePressed">
                      <children>
                         <ImageView fx:id="imagenfxID" fitHeight="2880.0" fitWidth="4480.0" pickOnBounds="true">
                            <image>
-                              <Image url="@../resources/carta_nautica.jpg" />
+                              <Image url="@../../../POI_UPV_1/src/resources/carta_nautica.jpg" />
                            </image>
                         </ImageView>
                         <MenuButton fx:id="menu_pin" mnemonicParsing="false" prefHeight="60.0" prefWidth="48.0" styleClass="map-pin" visible="false">
@@ -72,10 +73,9 @@
                   </Pane>
                </content>
             </ScrollPane>
-            <ListView fx:id="listafxID" prefHeight="200.0" prefWidth="200.0" />
-        </items>
-      </SplitPane>
-      <HBox alignment="CENTER_RIGHT" spacing="10.0">
+         </center>
+      </BorderPane>
+      <HBox alignment="CENTER_RIGHT" scaleShape="false" spacing="10.0">
          <children>
             <Label fx:id="posicionfxID" text="Scene X:     Scene Y:     " />
          </children>
