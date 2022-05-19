@@ -63,7 +63,7 @@
                      <children>
                         <ImageView fx:id="imagenfxID" fitHeight="2880.0" fitWidth="4480.0" pickOnBounds="true">
                            <image>
-                              <Image url="@../../../POI_UPV_1/src/resources/carta_nautica.jpg" />
+                              <Image url="@../resources/carta_nautica.jpg" />
                            </image>
                         </ImageView>
                         <MenuButton fx:id="menu_pin" mnemonicParsing="false" prefHeight="60.0" prefWidth="48.0" styleClass="map-pin" visible="false">

@@ -113,14 +113,15 @@ public class TestController implements Initializable {
     private void bCartaNavegación(ActionEvent event) throws IOException {
         Session sesion = new Session(LocalDateTime.now(), aciertos, fallos);
         
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("CartaNavegacion.fxml"));
-            Parent root = loader.load();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(PoiUPVApp.class.getResource("CartaNavegacion.fxml"));
+        Parent root = (Parent) loader.load();
             
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.showAndWait();
+            stage.show();
             stage.setTitle("Carta de Navegacion");
             
         

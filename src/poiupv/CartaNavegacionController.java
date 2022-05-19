@@ -91,9 +91,7 @@ public class CartaNavegacionController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        imagenfxID = new ImageView(imagen);
-        
-        initData();
+        //imagenfxID = new ImageView(imagen);
         
         zoomSliderfxID.setMin(0.5);
         zoomSliderfxID.setMax(1.5);
@@ -139,15 +137,7 @@ public class CartaNavegacionController implements Initializable {
         });
         //==============================================================
         //Texto
-        texto.setOnAction(e -> {
-            Text textoT = new Text(texto.getText());
-            textoT.setX(texto.getLayoutX());
-            textoT.setY(texto.getLayoutY());
-            //textoT.setStyle("-fx-font-family: Cafata; -fx-font-size: 40");
-            zoomGroup.getChildren().add(textoT);
-            zoomGroup.getChildren().remove(texto);
-            e.consume();
-        });
+        
     }
 
     @FXML
@@ -253,6 +243,16 @@ public class CartaNavegacionController implements Initializable {
             texto.setLayoutX(event.getX());
                 texto.setLayoutY(event.getY());
                 texto.requestFocus();
+                
+            texto.setOnAction(e -> {
+            Text textoT = new Text(texto.getText());
+            textoT.setX(texto.getLayoutX());
+            textoT.setY(texto.getLayoutY());
+            //textoT.setStyle("-fx-font-family: Cafata; -fx-font-size: 40");
+            zoomGroup.getChildren().add(textoT);
+            zoomGroup.getChildren().remove(texto);
+            e.consume();
+        });
         }
     }
     
