@@ -5,6 +5,8 @@
  */
 package poiupv;
 
+import java.awt.Point;
+import static java.lang.Double.valueOf;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
@@ -79,6 +81,9 @@ public class CartaNavegacionController implements Initializable {
     double inicioXArc;
     Circle circlePainting;
     TextField texto;
+    Circle punto;
+    
+    Color color;
     
     
     
@@ -106,6 +111,8 @@ public class CartaNavegacionController implements Initializable {
         zoomGroup.getChildren().add(map_scrollpane.getContent());
         map_scrollpane.setContent(contentGroup);
         //======================================================
+        
+        color = Color.RED;
         
     }    
     
@@ -220,14 +227,24 @@ public class CartaNavegacionController implements Initializable {
     @FXML
     private void mousePressed(MouseEvent event) {
         linePainting = new Line(event.getX(), event.getY(), event.getX(), event.getY());
+        linePainting.setFill(color);
+        linePainting.setStroke(color);
         circlePainting = new Circle(1);
-        circlePainting.setStroke(Color.RED);
+        circlePainting.setStroke(color);
         circlePainting.setFill(Color.TRANSPARENT);
+        punto = new Circle();
+        punto.setStroke(color);
+        punto.setFill(color);
+       // punto = new Point(event.getX(), event.getY());
+        
         texto = new TextField();
         
         
         if(pintar == 1){
-            
+            zoomGroup.getChildren().add(punto);
+            punto.setRadius(3);
+            punto.setCenterX(event.getX());
+            punto.setCenterY(event.getY());
         }
         if(pintar == 2){
             zoomGroup.getChildren().add(linePainting);
