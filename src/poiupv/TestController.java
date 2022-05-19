@@ -43,7 +43,7 @@ public class TestController implements Initializable {
     @FXML
     private Label usuariofxID;
     @FXML
-    private Menu cambiarUsuariofxID;
+    private MenuItem cambiarUsuariofxID;
     @FXML
     private MenuItem cartaNavegacionfxID;
     @FXML
@@ -68,7 +68,7 @@ public class TestController implements Initializable {
     @FXML
     private MenuItem FinalizarfxID;
     @FXML
-    private Menu infofxID;
+    private MenuItem infofxID;
     @FXML
     private Button comprobarfxID;
     @FXML
@@ -104,9 +104,6 @@ public class TestController implements Initializable {
     }    
 
 
-    @FXML
-    private void bCambiarUsuario(ActionEvent event) {
-    }
 
     @FXML
     private void bCartaNavegación(ActionEvent event) throws IOException {
@@ -293,6 +290,22 @@ public class TestController implements Initializable {
         }
         
         comprobarfxID.setDisable(true);
+    }
+
+    @FXML
+    private void bCambiarUsuario(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("InicioSesion.fxml"));
+            Parent root = loader.load();
+            
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.show();
+            stage.setTitle("Iniciar Sesion");
+            
+            Stage myStage = (Stage) this.comprobarfxID.getScene().getWindow();
+            myStage.close();
     }
     
 }

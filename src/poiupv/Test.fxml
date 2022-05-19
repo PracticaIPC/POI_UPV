@@ -22,18 +22,18 @@
          <children>
             <MenuBar>
               <menus>
-                <Menu mnemonicParsing="false" text="Carta de navegacion">
+                <Menu mnemonicParsing="false" text="Sesión">
+                     <items>
+                        <MenuItem fx:id="FinalizarfxID" mnemonicParsing="false" onAction="#bFinalizar" text="Finalizar" />
+                        <MenuItem fx:id="cambiarUsuariofxID" mnemonicParsing="false" onAction="#bCambiarUsuario" text="Cambiar Usuario" />
+                     </items></Menu>
+                <Menu mnemonicParsing="false" text="Herramientas">
                      <items>
                         <MenuItem fx:id="cartaNavegacionfxID" mnemonicParsing="false" onAction="#bCartaNavegación" text="Carta Navegación" />
                      </items></Menu>
-                <Menu mnemonicParsing="false" text="Finalizar">
-                     <items>
-                        <MenuItem fx:id="FinalizarfxID" mnemonicParsing="false" onAction="#bFinalizar" text="Finalizar" />
-                     </items></Menu>
-                <Menu fx:id="cambiarUsuariofxID" mnemonicParsing="false" onAction="#bCambiarUsuario" text="Cambiar de usuario" />
-                  <Menu fx:id="infofxID" mnemonicParsing="false" onAction="#bInfo" text="Info">
+                  <Menu mnemonicParsing="false" text="Ayuda">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                      <MenuItem fx:id="infofxID" mnemonicParsing="false" onAction="#bInfo" text="Información" />
                     </items>
                   </Menu>
               </menus>
