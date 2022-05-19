@@ -34,7 +34,11 @@ import model.Session;
 /**
  * FXML Controller class
  *
- * @author User
+ * Proyecto Realizado por:
+ * - Francisco Ramos Guardiola
+ * - Álvaro Camino Tirapu
+ * - Carmen Martínez Rodríguez
+ * GRUPO: 2F - L1
  */
 public class TestController implements Initializable {
 

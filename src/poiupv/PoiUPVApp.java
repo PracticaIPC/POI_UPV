@@ -13,7 +13,11 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author jose
+ * Proyecto Realizado por:
+ * - Francisco Ramos Guardiola
+ * - Álvaro Camino Tirapu
+ * - Carmen Martínez Rodríguez
+ * GRUPO: 2F - L1
  */
 public class PoiUPVApp extends Application {
     
