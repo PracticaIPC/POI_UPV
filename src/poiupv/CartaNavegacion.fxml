@@ -19,29 +19,32 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="578.0" scaleShape="false" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poiupv.CartaNavegacionController">
    <children>
-      <HBox alignment="CENTER" maxHeight="42.0" prefHeight="42.0" prefWidth="578.0" spacing="10.0">
+      <HBox alignment="CENTER_RIGHT" maxHeight="42.0" prefHeight="42.0" prefWidth="578.0" spacing="10.0">
          <children>
             <MenuBar>
               <menus>
                 <Menu fx:id="informacionfxID" mnemonicParsing="false" onAction="#bInformacion" text="Información" />
-                <Menu fx:id="limpiarfxID" mnemonicParsing="false" onAction="#bLimpiar" text="Limpiar Carta" />
-                <Menu mnemonicParsing="false" text="Editar Marca">
+                <Menu mnemonicParsing="false" text="Herramientas">
                   <items>
-                    <MenuItem fx:id="cambiarColorfxID" mnemonicParsing="false" onAction="#bCambiarColor" text="Cambiar Color" />
+                    <MenuItem fx:id="cambiarColorfxID" mnemonicParsing="false" onAction="#bCambiarColor" text="Cambiar Color Marca" />
                         <MenuItem fx:id="eliminarMarcafxID" mnemonicParsing="false" onAction="#bEliminarMarca" text="Eliminar Marca" />
+                        <MenuItem fx:id="limpiarfxID" mnemonicParsing="false" onAction="#bLimpiar" text="Limpiar Carta" />
                   </items>
                 </Menu>
               </menus>
             </MenuBar>
-            <Region prefHeight="52.0" prefWidth="38.0" />
+            <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
             <Button mnemonicParsing="false" onAction="#zoomOut" text="-" />
             <Slider fx:id="zoomSliderfxID" />
             <Button mnemonicParsing="false" onAction="#zoomIn" text="+" />
          </children>
+         <padding>
+            <Insets left="10.0" right="10.0" top="5.0" />
+         </padding>
       </HBox>
       <BorderPane scaleShape="false">
          <left>
-            <VBox alignment="CENTER" maxWidth="123.0" prefHeight="307.0" prefWidth="118.0" scaleShape="false" spacing="10.0" BorderPane.alignment="CENTER">
+            <VBox alignment="CENTER" prefHeight="334.0" prefWidth="115.0" scaleShape="false" spacing="10.0" BorderPane.alignment="CENTER">
                <children>
                   <Button fx:id="puntofxID" mnemonicParsing="false" onAction="#bPunto" text="Punto" />
                   <Button fx:id="lineafxID" mnemonicParsing="false" onAction="#bLinea" text="Linea" />
@@ -54,7 +57,7 @@
             </VBox>
          </left>
          <center>
-            <ScrollPane fx:id="map_scrollpane" prefHeight="200.0" prefWidth="200.0" scaleShape="false" BorderPane.alignment="CENTER">
+            <ScrollPane fx:id="map_scrollpane" scaleShape="false" BorderPane.alignment="CENTER">
                <content>
                   <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseDragged="#mouseDragged" onMousePressed="#mousePressed">
                      <children>

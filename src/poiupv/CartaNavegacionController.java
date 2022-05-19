@@ -22,27 +22,27 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
+import javafx.scene.text.Text;
 
 /**
  * FXML Controller class
  *
- * 
- * Proyecto Realizado por:
- * - Francisco Ramos Guardiola
- * - Álvaro Camino Tirapu
- * - Carmen Martínez Rodríguez
- * GRUPO: 2F - L1
+ * @author User
  */
 public class CartaNavegacionController implements Initializable {
 
     @FXML
     private Menu informacionfxID;
     @FXML
-    private Menu limpiarfxID;
+    private MenuItem limpiarfxID;
     @FXML
     private MenuItem cambiarColorfxID;
     @FXML
@@ -76,6 +76,11 @@ public class CartaNavegacionController implements Initializable {
     private Group zoomGroup;
     
     int pintar;
+    double inicioXArc;
+    Circle circlePainting;
+    TextField texto;
+    
+    
     
     
     @FXML
@@ -121,8 +126,28 @@ public class CartaNavegacionController implements Initializable {
         map_scrollpane.setVvalue(scrollV);
         //========================================================
         //Linea
-        
+        linePainting.setOnContextMenuRequested(e -> {
+            ContextMenu menuContext = new ContextMenu();
+            MenuItem borrarItem = new MenuItem("eliminar");
+            menuContext.getItems().add(borrarItem);
+            borrarItem.setOnAction(ev -> {
+                zoomGroup.getChildren().remove((Node)e.getSource());
+                ev.consume();
+            });
+            menuContext.show(linePainting, e.getSceneX(), e.getSceneY());
+            e.consume();
+        });
         //==============================================================
+        //Texto
+        texto.setOnAction(e -> {
+            Text textoT = new Text(texto.getText());
+            textoT.setX(texto.getLayoutX());
+            textoT.setY(texto.getLayoutY());
+            //textoT.setStyle("-fx-font-family: Cafata; -fx-font-size: 40");
+            zoomGroup.getChildren().add(textoT);
+            zoomGroup.getChildren().remove(texto);
+            e.consume();
+        });
     }
 
     @FXML
@@ -131,6 +156,7 @@ public class CartaNavegacionController implements Initializable {
 
     @FXML
     private void bLimpiar(ActionEvent event) {
+        
     }
 
     @FXML
@@ -139,6 +165,8 @@ public class CartaNavegacionController implements Initializable {
 
     @FXML
     private void bEliminarMarca(ActionEvent event) {
+        int i = zoomGroup.getChildren().size();
+        zoomGroup.getChildren().remove(i-1);
     }
 
     @FXML
@@ -156,32 +184,22 @@ public class CartaNavegacionController implements Initializable {
     @FXML
     private void bPunto(ActionEvent event) {
        pintar = 1;
-        linePainting.setOnContextMenuRequested(e -> {
-            ContextMenu menuContext = new ContextMenu();
-            MenuItem borrarItem = new MenuItem("eliminar");
-            menuContext.getItems().add(borrarItem);
-            borrarItem.setOnAction(ev -> {
-                zoomGroup.getChildren().remove((Node) e.getSource());
-                ev.consume();
-            });
-            menuContext.show(linePainting, e.getSceneX(), e.getSceneY());
-            e.consume();
-        });
+        
     }
 
     @FXML
     private void bLinea(ActionEvent event) {
-        //pintar = 2;
+       pintar = 2;
     }
 
     @FXML
     private void bArco(ActionEvent event) {
-       // pintar = 3;
+       pintar = 3;
     }
 
     @FXML
     private void bTexto(ActionEvent event) {
-       // pintar = 4;
+       pintar = 4;
     }
 
     private void initData() {
@@ -190,32 +208,52 @@ public class CartaNavegacionController implements Initializable {
 
     @FXML
     private void mouseDragged(MouseEvent event) {
-        switch(pintar){
-            case 1:
-                System.out.println("Punto");
-            case 2:
-                linePainting.setEndX(event.getX());
+        
+        
+        if(pintar == 1){
+            
+        }
+        if(pintar == 2){
+            linePainting.setEndX(event.getX());
                 linePainting.setEndY(event.getY());
-            case 3:
-                System.out.println("Arco");
-            case 4:
-                System.out.println("Texto");
-            }
+        }
+        if(pintar == 3){
+            double radio = Math.abs(event.getX() - inicioXArc);
+                circlePainting.setRadius(radio);
+                event.consume();
+        }
+        if(pintar == 4){
+            
+        }
     }
 
     @FXML
     private void mousePressed(MouseEvent event) {
-        switch(pintar){
-            case 1:
-                System.out.println("Punto");
-            case 2:
-                linePainting = new Line(event.getX(), event.getY(), event.getX(), event.getY());
-                zoomGroup.getChildren().add(linePainting);
-            case 3:
-                System.out.println("Arco");
-            case 4:
-                System.out.println("Texto");
-            }
+        linePainting = new Line(event.getX(), event.getY(), event.getX(), event.getY());
+        circlePainting = new Circle(1);
+        circlePainting.setStroke(Color.RED);
+        circlePainting.setFill(Color.TRANSPARENT);
+        texto = new TextField();
+        
+        
+        if(pintar == 1){
+            
+        }
+        if(pintar == 2){
+            zoomGroup.getChildren().add(linePainting);
+        }
+        if(pintar == 3){
+                zoomGroup.getChildren().add(circlePainting);
+                
+                circlePainting.setCenterX(event.getX());
+                circlePainting.setCenterY(event.getY());
+                inicioXArc = event.getX();
+        }
+        if(pintar == 4){
+            texto.setLayoutX(event.getX());
+                texto.setLayoutY(event.getY());
+                texto.requestFocus();
+        }
     }
     
 }
