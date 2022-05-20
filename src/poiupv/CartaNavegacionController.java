@@ -153,11 +153,15 @@ public class CartaNavegacionController implements Initializable {
 
     @FXML
     private void bLimpiar(ActionEvent event) {
+        for(int i = zoomGroup.getChildren().size() - 1; i > 0; i--){
+            zoomGroup.getChildren().remove(i);
+        }
         
     }
 
     @FXML
     private void bCambiarColor(ActionEvent event) {
+        
     }
 
     @FXML
