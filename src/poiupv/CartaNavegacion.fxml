@@ -27,10 +27,15 @@
                 <Menu fx:id="informacionfxID" mnemonicParsing="false" onAction="#bInformacion" text="Información" />
                 <Menu mnemonicParsing="false" text="Herramientas">
                   <items>
-                    <MenuItem fx:id="cambiarColorfxID" mnemonicParsing="false" onAction="#bCambiarColor" text="Cambiar Color Marca">
-                           <graphic>
-                              <ColorPicker fx:id="colorfxID" onAction="#bColor" promptText="Cambiar Color Marca" />
-                           </graphic></MenuItem>
+                        <Menu mnemonicParsing="false" text="Cambiar Color Marca">
+                          <items>
+                          <MenuItem fx:id="cambiarColorfxID" mnemonicParsing="false" onAction="#bCambiarColor">
+                                 <graphic>
+                                    <ColorPicker fx:id="colorfxID" onAction="#bColor" promptText="Cambiar Color Marca" />
+                                 </graphic>
+                              </MenuItem>
+                          </items>
+                        </Menu>
                         <MenuItem fx:id="eliminarMarcafxID" mnemonicParsing="false" onAction="#bEliminarMarca" text="Eliminar Marca" />
                         <MenuItem fx:id="limpiarfxID" mnemonicParsing="false" onAction="#bLimpiar" text="Limpiar Carta" />
                   </items>
