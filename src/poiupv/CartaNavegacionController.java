@@ -10,12 +10,14 @@ import static java.lang.Double.valueOf;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
+import static javafx.beans.binding.Bindings.when;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -90,6 +92,8 @@ public class CartaNavegacionController implements Initializable {
     
     @FXML
     private ImageView imagenfxID;
+    @FXML
+    private ColorPicker colorfxID;
 
     /**
      * Initializes the controller class.
@@ -144,6 +148,7 @@ public class CartaNavegacionController implements Initializable {
         });
         //==============================================================
         //Texto
+        
         
     }
 
@@ -217,11 +222,19 @@ public class CartaNavegacionController implements Initializable {
         if(pintar == 2){
             linePainting.setEndX(event.getX());
                 linePainting.setEndY(event.getY());
+                
+            
+            
         }
+                
+                
+        
         if(pintar == 3){
             double radio = Math.abs(event.getX() - inicioXArc);
                 circlePainting.setRadius(radio);
                 event.consume();
+                
+                
         }
         if(pintar == 4){
             
@@ -249,6 +262,8 @@ public class CartaNavegacionController implements Initializable {
             punto.setRadius(3);
             punto.setCenterX(event.getX());
             punto.setCenterY(event.getY());
+            
+            
         }
         if(pintar == 2){
             zoomGroup.getChildren().add(linePainting);
@@ -261,6 +276,7 @@ public class CartaNavegacionController implements Initializable {
                 inicioXArc = event.getX();
         }
         if(pintar == 4){
+            zoomGroup.getChildren().add(texto);
             texto.setLayoutX(event.getX());
                 texto.setLayoutY(event.getY());
                 texto.requestFocus();
@@ -269,12 +285,26 @@ public class CartaNavegacionController implements Initializable {
             Text textoT = new Text(texto.getText());
             textoT.setX(texto.getLayoutX());
             textoT.setY(texto.getLayoutY());
-            //textoT.setStyle("-fx-font-family: Cafata; -fx-font-size: 40");
+            textoT.setStyle("-fx-font-family: Gafata; -fx-font-size: 40;");
+            textoT.setFill(color);
             zoomGroup.getChildren().add(textoT);
             zoomGroup.getChildren().remove(texto);
             e.consume();
         });
+                
+            
         }
+    }
+
+    @FXML
+    private void bColor(ActionEvent event) {
+        color = colorfxID.getValue();
+        
+    }
+
+    @FXML
+    private void bSalirMouse(MouseEvent event) {
+        pintar = 0;
     }
     
 }
