@@ -102,6 +102,8 @@ public class TestController implements Initializable {
         resp3fxID.setText(BaseDatos.getProblems().get(i).getAnswers().get(2).getText());
         resp4fxID.setText(BaseDatos.getProblems().get(i).getAnswers().get(3).getText());
         
+        resultfxID.setVisible(false);
+        
         
 
         
@@ -136,13 +138,14 @@ public class TestController implements Initializable {
         resp2fxID.setSelected(false);
         resp3fxID.setSelected(false);
         resp4fxID.setSelected(false);
+        resultfxID.setVisible(false);
         
         comprobarfxID.setDisable(false);
         
-        resp1fxID.setTextFill(Color.BLACK);
-        resp2fxID.setTextFill(Color.BLACK);
-        resp3fxID.setTextFill(Color.BLACK);
-        resp4fxID.setTextFill(Color.BLACK);
+        resp1fxID.setTextFill(Color.WHITE);
+        resp2fxID.setTextFill(Color.WHITE);
+        resp3fxID.setTextFill(Color.WHITE);
+        resp4fxID.setTextFill(Color.WHITE);
         int j = rnd.nextInt(17)  +1;
         
         if(j == i){
@@ -233,69 +236,76 @@ public class TestController implements Initializable {
 
     @FXML
     private void bInfo(ActionEvent event) {
+        
     }
 
     @FXML
     private void bComprobar(ActionEvent event) {
         if(resultado == false){
+            
             resultfxID.setText("Incorrecto");
+            resultfxID.setTextFill(Color.PINK);
+            resultfxID.setVisible(true);
             fallos += 1;
             if(resp4fxID.isSelected()){
-                resp4fxID.setTextFill(Color.RED);
+                resp4fxID.setTextFill(Color.PINK);
                 if(BaseDatos.getProblems().get(i).getAnswers().get(0).getValidity() == true){
-                    resp1fxID.setTextFill(Color.GREEN);
+                    resp1fxID.setTextFill(Color.LIGHTGREEN);
                 }else if(BaseDatos.getProblems().get(i).getAnswers().get(1).getValidity() == true){
-                    resp2fxID.setTextFill(Color.GREEN);
+                    resp2fxID.setTextFill(Color.LIGHTGREEN);
                 }else if(BaseDatos.getProblems().get(i).getAnswers().get(2).getValidity() == true){
-                    resp3fxID.setTextFill(Color.GREEN);
+                    resp3fxID.setTextFill(Color.LIGHTGREEN);
                 }
             }
             if(resp1fxID.isSelected()){
-                resp1fxID.setTextFill(Color.RED);
+                resp1fxID.setTextFill(Color.PINK);
                 if(BaseDatos.getProblems().get(i).getAnswers().get(3).getValidity() == true){
-                    resp4fxID.setTextFill(Color.GREEN);
+                    resp4fxID.setTextFill(Color.LIGHTGREEN);
                 }else if(BaseDatos.getProblems().get(i).getAnswers().get(1).getValidity() == true){
-                    resp2fxID.setTextFill(Color.GREEN);
+                    resp2fxID.setTextFill(Color.LIGHTGREEN);
                 }else if(BaseDatos.getProblems().get(i).getAnswers().get(2).getValidity() == true){
-                    resp3fxID.setTextFill(Color.GREEN);
+                    resp3fxID.setTextFill(Color.LIGHTGREEN);
                 }
             }
             if(resp2fxID.isSelected()){
-                resp2fxID.setTextFill(Color.RED);
+                resp2fxID.setTextFill(Color.PINK);
                 if(BaseDatos.getProblems().get(i).getAnswers().get(0).getValidity() == true){
-                    resp1fxID.setTextFill(Color.GREEN);
+                    resp1fxID.setTextFill(Color.LIGHTGREEN);
                 }else if(BaseDatos.getProblems().get(i).getAnswers().get(3).getValidity() == true){
-                    resp4fxID.setTextFill(Color.GREEN);
+                    resp4fxID.setTextFill(Color.LIGHTGREEN);
                 }else if(BaseDatos.getProblems().get(i).getAnswers().get(2).getValidity() == true){
-                    resp3fxID.setTextFill(Color.GREEN);
+                    resp3fxID.setTextFill(Color.LIGHTGREEN);
                 }
             }
             if(resp3fxID.isSelected()){
-                resp3fxID.setTextFill(Color.RED);
+                resp3fxID.setTextFill(Color.PINK);
                 if(BaseDatos.getProblems().get(i).getAnswers().get(0).getValidity() == true){
-                    resp1fxID.setTextFill(Color.GREEN);
+                    resp1fxID.setTextFill(Color.LIGHTGREEN);
                 }else if(BaseDatos.getProblems().get(i).getAnswers().get(1).getValidity() == true){
-                    resp2fxID.setTextFill(Color.GREEN);
+                    resp2fxID.setTextFill(Color.LIGHTGREEN);
                 }else if(BaseDatos.getProblems().get(i).getAnswers().get(3).getValidity() == true){
-                    resp4fxID.setTextFill(Color.GREEN);
+                    resp4fxID.setTextFill(Color.LIGHTGREEN);
                 }
             }
         }else{
             resultfxID.setText("Correcto");
+            resultfxID.setTextFill(Color.LIGHTGREEN);
+            resultfxID.setVisible(true);
             aciertos += 1;
             if(resp4fxID.isSelected()){
-                resp4fxID.setTextFill(Color.GREEN);
+                resp4fxID.setTextFill(Color.LIGHTGREEN);
             }
             if(resp1fxID.isSelected()){
-                resp1fxID.setTextFill(Color.GREEN);
+                resp1fxID.setTextFill(Color.LIGHTGREEN);
             }
             if(resp2fxID.isSelected()){
-                resp2fxID.setTextFill(Color.GREEN);
+                resp2fxID.setTextFill(Color.LIGHTGREEN);
             }
             if(resp3fxID.isSelected()){
-                resp3fxID.setTextFill(Color.GREEN);
+                resp3fxID.setTextFill(Color.LIGHTGREEN);
             }
         }
+        
         
         comprobarfxID.setDisable(true);
     }

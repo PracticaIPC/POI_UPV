@@ -48,7 +48,7 @@
     -app-color-hi: white;
     -app-color-lo: black;
     -app-hover: #666666;
-    -app-color-1: rgb(32, 33, 36);
+    -app-color-1: rgb(89, 90, 95);
     -app-color-2: rgb(41, 41, 49);
     -app-color-3: rgb(106, 204, 172);
     -fx-background-color: -app-color-1;
@@ -210,4 +210,18 @@ S17.642,20.762,13.558,20.762z";
 .contrast .table-cell:selected:filled:hover {
     -fx-background-color: -app-color-3;
     -fx-text-fill: white;
+}
+
+
+.contrast .menu-bar {
+    -fx-background-color: -app-color-2;
+    -fx-border-color: white;
+}
+.contrast .menu {
+    -fx-background-color: -app-color-2;
+    -fx-border-color: white
+}
+
+.contrast .menu-item {
+    -fx-background-color: -app-color-2;
 }

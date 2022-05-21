@@ -45,7 +45,7 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <Region prefHeight="26.0" prefWidth="178.0" />
+            <Region prefHeight="26.0" prefWidth="178.0" HBox.hgrow="ALWAYS" />
             <Button mnemonicParsing="false" onAction="#zoomOut" text="-" />
             <Slider fx:id="zoomSliderfxID" />
             <Button mnemonicParsing="false" onAction="#zoomIn" text="+" />

@@ -16,11 +16,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poiupv.TestController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="contrast" stylesheets="@../resources/estilos.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poiupv.TestController">
    <top>
       <HBox alignment="CENTER_LEFT" prefHeight="64.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER_LEFT">
          <children>
-            <MenuBar>
+            <MenuBar styleClass="button">
               <menus>
                 <Menu mnemonicParsing="false" text="Sesión">
                      <items>
@@ -38,12 +38,15 @@
                   </Menu>
               </menus>
             </MenuBar>
-            <Region prefHeight="71.0" prefWidth="92.0" />
+            <Region HBox.hgrow="ALWAYS" />
             <VBox alignment="TOP_CENTER" prefHeight="236.0" prefWidth="98.0">
                <children>
                   <ImageView fx:id="avatatfxID" fitHeight="53.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
                   <Label fx:id="usuariofxID" text="usuario" />
                </children>
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
             </VBox>
          </children>
          <BorderPane.margin>
@@ -69,10 +72,10 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <CheckBox fx:id="resp1fxID" mnemonicParsing="false" onAction="#bResp1" text="respuesta1" wrapText="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                  <CheckBox fx:id="resp2fxID" mnemonicParsing="false" onAction="#bResp2" text="respuesta2" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                  <CheckBox fx:id="resp3fxID" mnemonicParsing="false" onAction="#bResp3" text="respuesta3" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                  <CheckBox fx:id="resp4fxID" mnemonicParsing="false" onAction="#bResp4" text="respuesta4" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <CheckBox fx:id="resp1fxID" mnemonicParsing="false" onAction="#bResp1" styleClass="label" text="respuesta1" wrapText="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <CheckBox fx:id="resp2fxID" mnemonicParsing="false" onAction="#bResp2" styleClass="label" text="respuesta2" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <CheckBox fx:id="resp3fxID" mnemonicParsing="false" onAction="#bResp3" styleClass="label" text="respuesta3" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <CheckBox fx:id="resp4fxID" mnemonicParsing="false" onAction="#bResp4" styleClass="label" text="respuesta4" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                </children>
             </GridPane>
          </children>

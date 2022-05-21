@@ -158,9 +158,10 @@ public class CartaNavegacionController implements Initializable {
     @FXML
     private void bInformacion(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setResizable(true);
         alert.setHeaderText("Como Usar la carta de navegación");
         alert.setTitle("Información");
-        alert.setContentText("Para dibujar en la carta de navegación pulse el boton a la izquierda del objeto que desea dibujar: \n" + 
+        alert.setContentText("Para dibujar en la carta de navegación pulse el boton a la izquierda del objeto que desea dibujar: \n" + "- No Seleccionar: Utilice este boton para moverte libremente por la carta sin dibujar nada. \n" +
                 "- Punto: Pulse sobre la carta para dibujar el punto. \n" + "- Linea: Pulse (punto inicial) y arrastre (hasta punto final deseado) sobre la carta. \n" + 
                 "- Arco: Pulse (centro del arco) y arrastre (diametro deseado) sobre la carta. \n" + "- Texto: Pulse sobre la carta donde desea escribir el texto. \n" + 
                 "Menu Herramientas: \n" + "- Cambiar Color Marca: Seleccione el color de la siguiente marca a dibujar \n" + "- Eliminar Marca: Eliminas la ultima marca introducida en la carta de navegación \n" + 
@@ -320,6 +321,7 @@ public class CartaNavegacionController implements Initializable {
 
     @FXML
     private void bNoDibujar(ActionEvent event) {
+        pintar = 0;
     }
     
 }
