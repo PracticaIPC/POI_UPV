@@ -130,8 +130,9 @@ public class TestController implements Initializable {
             stage.showAndWait();
             stage.setTitle("Carta de Navegacion");
             
+            
             Stage myStage = (Stage) this.comprobarfxID.getScene().getWindow();
-            myStage.requestFocus();
+            myStage.setAlwaysOnTop(true);
             
         
     }

@@ -63,6 +63,7 @@
                   <Button fx:id="lineafxID" mnemonicParsing="false" onAction="#bLinea" text="Linea" />
                   <Button fx:id="arcofxID" mnemonicParsing="false" onAction="#bArco" text="Arco" />
                   <Button fx:id="textofxID" mnemonicParsing="false" onAction="#bTexto" text="Texto" />
+                  <Button fx:id="trasnportadorfxID" mnemonicParsing="false" onAction="#bTransportador" text="Transportador" />
                </children>
                <padding>
                   <Insets top="20.0" />

@@ -88,7 +88,7 @@ public class CartaNavegacionController implements Initializable {
     
     Color color;
     
-    
+    Image transportador = new Image(getClass().getResourceAsStream("/resources/transportador.png"));
     
     
     @FXML
@@ -97,6 +97,8 @@ public class CartaNavegacionController implements Initializable {
     private ColorPicker colorfxID;
     @FXML
     private Button noDibujarfxID;
+    @FXML
+    private Button trasnportadorfxID;
 
     /**
      * Initializes the controller class.
@@ -322,6 +324,11 @@ public class CartaNavegacionController implements Initializable {
     @FXML
     private void bNoDibujar(ActionEvent event) {
         pintar = 0;
+    }
+
+    @FXML
+    private void bTransportador(ActionEvent event) {
+        pintar = 5;
     }
     
 }
