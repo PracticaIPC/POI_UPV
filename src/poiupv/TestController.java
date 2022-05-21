@@ -121,8 +121,11 @@ public class TestController implements Initializable {
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
-            stage.show();
+            stage.showAndWait();
             stage.setTitle("Carta de Navegacion");
+            
+            Stage myStage = (Stage) this.comprobarfxID.getScene().getWindow();
+            myStage.requestFocus();
             
         
     }

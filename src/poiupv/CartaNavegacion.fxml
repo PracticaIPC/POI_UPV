@@ -24,7 +24,10 @@
          <children>
             <MenuBar>
               <menus>
-                <Menu fx:id="informacionfxID" mnemonicParsing="false" onAction="#bInformacion" text="Información" />
+                <Menu mnemonicParsing="false" text="Ayuda">
+                     <items>
+                        <MenuItem fx:id="informacionfxID" mnemonicParsing="false" onAction="#bInformacion" text="Información" />
+                     </items></Menu>
                 <Menu mnemonicParsing="false" text="Herramientas">
                   <items>
                         <Menu mnemonicParsing="false" text="Cambiar Color Marca">
@@ -42,7 +45,7 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <Region maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
+            <Region prefHeight="26.0" prefWidth="178.0" />
             <Button mnemonicParsing="false" onAction="#zoomOut" text="-" />
             <Slider fx:id="zoomSliderfxID" />
             <Button mnemonicParsing="false" onAction="#zoomIn" text="+" />
@@ -55,6 +58,7 @@
          <left>
             <VBox alignment="CENTER" prefHeight="334.0" prefWidth="115.0" scaleShape="false" spacing="10.0" BorderPane.alignment="CENTER">
                <children>
+                  <Button fx:id="noDibujarfxID" mnemonicParsing="false" onAction="#bNoDibujar" text="No Dibujar" />
                   <Button fx:id="puntofxID" mnemonicParsing="false" onAction="#bPunto" text="Punto" />
                   <Button fx:id="lineafxID" mnemonicParsing="false" onAction="#bLinea" text="Linea" />
                   <Button fx:id="arcofxID" mnemonicParsing="false" onAction="#bArco" text="Arco" />

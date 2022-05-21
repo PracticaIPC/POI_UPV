@@ -16,6 +16,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ContextMenu;
@@ -44,7 +45,7 @@ import javafx.scene.text.Text;
 public class CartaNavegacionController implements Initializable {
 
     @FXML
-    private Menu informacionfxID;
+    private MenuItem informacionfxID;
     @FXML
     private MenuItem limpiarfxID;
     @FXML
@@ -94,6 +95,8 @@ public class CartaNavegacionController implements Initializable {
     private ImageView imagenfxID;
     @FXML
     private ColorPicker colorfxID;
+    @FXML
+    private Button noDibujarfxID;
 
     /**
      * Initializes the controller class.
@@ -154,6 +157,15 @@ public class CartaNavegacionController implements Initializable {
 
     @FXML
     private void bInformacion(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText("Como Usar la carta de navegación");
+        alert.setTitle("Información");
+        alert.setContentText("Para dibujar en la carta de navegación pulse el boton a la izquierda del objeto que desea dibujar: \n" + 
+                "- Punto: Pulse sobre la carta para dibujar el punto. \n" + "- Linea: Pulse (punto inicial) y arrastre (hasta punto final deseado) sobre la carta. \n" + 
+                "- Arco: Pulse (centro del arco) y arrastre (diametro deseado) sobre la carta. \n" + "- Texto: Pulse sobre la carta donde desea escribir el texto. \n" + 
+                "Menu Herramientas: \n" + "- Cambiar Color Marca: Seleccione el color de la siguiente marca a dibujar \n" + "- Eliminar Marca: Eliminas la ultima marca introducida en la carta de navegación \n" + 
+                "- Limpiar Carta: Eliminas todos los objetos introducidos en la carta \n" + "Para aumentar o reducir el tamaño de la carta puede seleccionar tant los botones de '+' y '-' como utilizar el slider de laparte superior derecha dela ventana");
+        alert.showAndWait();
     }
 
     @FXML
@@ -252,7 +264,6 @@ public class CartaNavegacionController implements Initializable {
         punto = new Circle();
         punto.setStroke(color);
         punto.setFill(color);
-       // punto = new Point(event.getX(), event.getY());
         
         texto = new TextField();
         
@@ -304,7 +315,11 @@ public class CartaNavegacionController implements Initializable {
 
     @FXML
     private void bSalirMouse(MouseEvent event) {
-        pintar = 0;
+       // pintar = 0;
+    }
+
+    @FXML
+    private void bNoDibujar(ActionEvent event) {
     }
     
 }
