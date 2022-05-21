@@ -19,6 +19,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -80,6 +81,8 @@ public class TestController implements Initializable {
     
     int aciertos = 0;
     int fallos = 0;
+    @FXML
+    private CheckBox sinSeleccionfxID;
 
     /**
      * Initializes the controller class.
@@ -103,6 +106,7 @@ public class TestController implements Initializable {
         resp4fxID.setText(BaseDatos.getProblems().get(i).getAnswers().get(3).getText());
         
         resultfxID.setVisible(false);
+        comprobarfxID.setDisable(true);
         
         
 
@@ -138,9 +142,10 @@ public class TestController implements Initializable {
         resp2fxID.setSelected(false);
         resp3fxID.setSelected(false);
         resp4fxID.setSelected(false);
+        sinSeleccionfxID.setSelected(false);
         resultfxID.setVisible(false);
         
-        comprobarfxID.setDisable(false);
+        comprobarfxID.setDisable(true);
         
         resp1fxID.setTextFill(Color.WHITE);
         resp2fxID.setTextFill(Color.WHITE);
@@ -168,6 +173,8 @@ public class TestController implements Initializable {
             resp2fxID.setSelected(false);
             resp3fxID.setSelected(false);
             resp4fxID.setSelected(false);
+            sinSeleccionfxID.setSelected(false);
+            comprobarfxID.setDisable(false);
             
             resultado = BaseDatos.getProblems().get(i).getAnswers().get(0).getValidity();
         }
@@ -180,6 +187,8 @@ public class TestController implements Initializable {
             resp1fxID.setSelected(false);
             resp3fxID.setSelected(false);
             resp4fxID.setSelected(false);
+            sinSeleccionfxID.setSelected(false);
+            comprobarfxID.setDisable(false);
             
             resultado = BaseDatos.getProblems().get(i).getAnswers().get(1).getValidity();
         }
@@ -191,7 +200,8 @@ public class TestController implements Initializable {
             resp2fxID.setSelected(false);
             resp1fxID.setSelected(false);
             resp4fxID.setSelected(false);
-            
+            sinSeleccionfxID.setSelected(false);
+            comprobarfxID.setDisable(false);
             resultado = BaseDatos.getProblems().get(i).getAnswers().get(2).getValidity();
         }
     }
@@ -202,7 +212,9 @@ public class TestController implements Initializable {
             resp2fxID.setSelected(false);
             resp3fxID.setSelected(false);
             resp1fxID.setSelected(false);
+            sinSeleccionfxID.setSelected(false);
             
+            comprobarfxID.setDisable(false);
             resultado = BaseDatos.getProblems().get(i).getAnswers().get(3).getValidity();
             
         }
@@ -236,6 +248,16 @@ public class TestController implements Initializable {
 
     @FXML
     private void bInfo(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setResizable(true);
+        alert.setHeaderText("Como Usar la carta de navegación");
+        alert.setTitle("Información");
+        alert.setContentText("Para Guardar la partida pulse en el menu Sesión a Finalizar \n" + "Para Cambiar de Usuario pulse en el menu Sesión a Cambiar Usuario \n" +
+                "En el menu Herramientas puedes acceder a una Carta de Navegación que puede servir de ayuda para realizar el test \n" +
+                "Para comprobar que la respuesta es correcta y se añada la respuesta pulse comprobar\n" + "Para pasar a la siguiente pregunta pulse Siguiente Pregunta\n" +
+                "Para dejar en blanco seleccionar Dejar en Blanco o sin seleccionar ninguna pregunta pulse Siguiente Pregunta \n" +
+                "Si pulsa siguiente pregunta sin comprobar la respuesta no se guardara el resultado de esta");
+        alert.showAndWait();
         
     }
 
@@ -324,6 +346,16 @@ public class TestController implements Initializable {
             
             Stage myStage = (Stage) this.comprobarfxID.getScene().getWindow();
             myStage.close();
+    }
+
+    @FXML
+    private void bsinSeleccion(ActionEvent event) {
+        resp2fxID.setSelected(false);
+            resp3fxID.setSelected(false);
+            resp1fxID.setSelected(false);
+            resp4fxID.setSelected(false);
+            
+            comprobarfxID.setDisable(true);
     }
     
 }

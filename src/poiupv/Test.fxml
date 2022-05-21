@@ -20,9 +20,9 @@
    <top>
       <HBox alignment="CENTER_LEFT" prefHeight="64.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER_LEFT">
          <children>
-            <MenuBar styleClass="button">
+            <MenuBar>
               <menus>
-                <Menu mnemonicParsing="false" text="Sesión">
+                <Menu mnemonicParsing="false" style="-fx-text-fill: black;" text="Sesión">
                      <items>
                         <MenuItem fx:id="FinalizarfxID" mnemonicParsing="false" onAction="#bFinalizar" text="Finalizar" />
                         <MenuItem fx:id="cambiarUsuariofxID" mnemonicParsing="false" onAction="#bCambiarUsuario" text="Cambiar Usuario" />
@@ -55,7 +55,7 @@
       </HBox>
    </top>
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
             <HBox alignment="CENTER" prefHeight="160.0" prefWidth="451.0">
                <children>
@@ -78,6 +78,7 @@
                   <CheckBox fx:id="resp4fxID" mnemonicParsing="false" onAction="#bResp4" styleClass="label" text="respuesta4" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                </children>
             </GridPane>
+            <CheckBox fx:id="sinSeleccionfxID" mnemonicParsing="false" onAction="#bsinSeleccion" styleClass="label" text="Dejar en Blanco" textAlignment="CENTER" />
          </children>
          <BorderPane.margin>
             <Insets left="40.0" right="40.0" />

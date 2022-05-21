@@ -81,6 +81,7 @@ S17.642,20.762,13.558,20.762z";
     -fx-background-color: -app-color-2, -app-color-1;
     -fx-background-insets: 0, 2;
     -fx-background-radius: 2, 1;
+    -fx-border-color: white;
 }
 .contrast .toggle-button:selected {
     -fx-background-color: -app-color-hi, -app-hover;
@@ -186,7 +187,7 @@ S17.642,20.762,13.558,20.762z";
 }
 
 .contrast .mostrar {
-    -fx-text-fill: gray;
+    -fx-text-fill: rgb(98, 98, 98);
 }
 
 .contrast .table-column {
@@ -213,10 +214,7 @@ S17.642,20.762,13.558,20.762z";
 }
 
 
-.contrast .menu-bar {
-    -fx-background-color: -app-color-2;
-    -fx-border-color: white;
-}
+
 .contrast .menu {
     -fx-background-color: -app-color-2;
     -fx-border-color: white
@@ -224,4 +222,13 @@ S17.642,20.762,13.558,20.762z";
 
 .contrast .menu-item {
     -fx-background-color: -app-color-2;
+}
+
+.contrast .menu-item:hover {
+    -fx-background-color: -app-color-3;
+}
+
+.contrast .menu-bar {
+    -fx-background-color: -app-color-1;
+    
 }
