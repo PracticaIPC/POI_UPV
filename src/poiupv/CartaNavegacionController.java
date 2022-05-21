@@ -18,6 +18,7 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
@@ -35,6 +36,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 /**
@@ -86,6 +88,8 @@ public class CartaNavegacionController implements Initializable {
     TextField texto;
     Circle punto;
     
+    double inicioXTrans, inicioYTrans, baseX, baseY;
+    
     Color color;
     
     Image transportador = new Image(getClass().getResourceAsStream("/resources/transportador.png"));
@@ -98,7 +102,9 @@ public class CartaNavegacionController implements Initializable {
     @FXML
     private Button noDibujarfxID;
     @FXML
-    private Button trasnportadorfxID;
+    private CheckBox trasnportadorfxID;
+    @FXML
+    private ImageView cuadradofxID;
 
     /**
      * Initializes the controller class.
@@ -122,6 +128,10 @@ public class CartaNavegacionController implements Initializable {
         //======================================================
         
         color = Color.RED;
+        
+        trasnportadorfxID.setSelected(false);
+        cuadradofxID.setVisible(false);
+        cuadradofxID.setOpacity(0.7);
         
     }    
     
@@ -328,7 +338,41 @@ public class CartaNavegacionController implements Initializable {
 
     @FXML
     private void bTransportador(ActionEvent event) {
-        pintar = 5;
+        if(trasnportadorfxID.isSelected()){
+            cuadradofxID.setVisible(true);
+        }else{
+            cuadradofxID.setVisible(false);
+        }
+    }
+
+    //Mouse Released
+    @FXML
+    private void finTraslacion(MouseEvent event) {
+    }
+
+    //Mouse Dragged
+    @FXML
+    private void traslacion(MouseEvent event) {
+        double despX = event.getSceneX() - inicioXTrans;
+        double despY = event.getSceneY() - inicioYTrans;
+        
+        cuadradofxID.setTranslateX(baseX + despX);
+        cuadradofxID.setTranslateY(baseY + despY);
+        
+        event.consume();
+        
+    }
+
+    //Mouse Pressed
+    @FXML
+    private void inicioTraslacion(MouseEvent event) {
+        inicioXTrans = event.getSceneX();
+        inicioYTrans = event.getSceneY();
+        
+        baseX = cuadradofxID.getTranslateX();
+        baseY = cuadradofxID.getTranslateY();
+        
+        event.consume();
     }
     
 }
