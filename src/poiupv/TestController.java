@@ -125,14 +125,13 @@ public class TestController implements Initializable {
             
             Scene scene = new Scene(root);
             Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.NONE);
             stage.setScene(scene);
             stage.showAndWait();
             stage.setTitle("Carta de Navegacion");
             
             
-            Stage myStage = (Stage) this.comprobarfxID.getScene().getWindow();
-            myStage.setAlwaysOnTop(true);
+           
             
         
     }
