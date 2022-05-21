@@ -1,0 +1,191 @@
+.aplicacion {
+    -color-fondo: rgb(89, 90, 95);
+    -color-letra: white;
+    -color-enlace: rgb(106, 204, 172);
+    -color-fondo-boton: rgb(65, 65, 77);
+    -color-fondo-boton-hover: rgb(110, 110, 126);
+    -color-fondo-texto: rgb(128, 129, 132);
+    -color-slider: rgb(175, 176, 179);
+
+    -fx-background-color: -color-fondo;
+}
+
+    /* Botones */
+
+.aplicacion .button {
+    -fx-background-color: -color-fondo-boton;
+    -fx-border-color: -color-enlace;
+    -fx-text-fill: -color-letra;
+    -fx-border-width: 2;
+    -fx-font-size: 14px;
+    -fx-background-radius: 10 10 10 10;
+    -fx-border-radius: 10 10 10 10;
+    -fx-font-weight: Bold;
+}
+
+.aplicacion .button:hover{
+    -fx-background-color: -color-fondo-boton-hover;
+}
+
+    /* Label */
+.aplicacion .label{
+    -fx-text-fill: -color-letra;
+    -fx-font-weight: bold;
+}
+
+.aplicacion .pregunta{
+    -fx-text-fill: -color-letra;
+    -fx-font-weight: bold;
+    -fx-border-color: -color-enlace;
+}
+
+    /* Text Field */
+.aplicacion .text-field{
+    -fx-background-color: -color-fondo-texto;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: rgb(228, 229, 235);
+    -fx-border-width: 2;
+    -fx-border-radius: 10 10 10 10;
+    -fx-background-radius: 10 10 10 10;
+}
+
+    /* Mostrar */
+.aplicacion .mostrar{
+    -fx-text-fill: rgb(209, 209, 209);
+}
+
+    /* CheckBox */
+.aplicacion .check-box{
+    -fx-text-fill: -color-letra;
+    -fx-font-weight: bold;
+}
+
+.aplicacion .check-box-test{
+    -fx-text-fill: -color-letra;
+}
+
+.aplicacion .check-box .box{
+    -fx-background-color: -color-fondo;
+    -fx-border-color: -color-enlace;
+    -fx-border-radius: 5 5 5 5;
+}
+
+.aplicacion .check-box:selected .box{
+    -fx-background-color: -color-enlace;
+}
+
+    /* Enlace */
+.aplicacion .enlace{
+    -fx-text-fill: -color-enlace;
+    -fx-font-weight: bold;
+}
+
+    /* DatePicker */
+.aplicacion .date-picker {
+    -fx-focus-color: -color-enlace;
+    -fx-background-color: -color-enlace;
+}
+
+.aplicacion .date-picker .arrow-button{
+    -fx-background-color: -color-enlace;
+    -fx-background-radius: 0;
+}
+.aplicacion .date-picker .arrow-button .arrow{
+    -fx-background-color: -color-fondo;
+}
+.aplicacion .date-picker .cell{
+    -fx-background-color: -color-fondo;
+}
+.aplicacion .date-picker .cell:hover {
+    -fx-background-color: -color-fondo-boton-hover;
+    -fx-text-fill: white;
+}
+
+.aplicacion .date-picker .cell:focused{
+    -fx-background-color: lightgray;
+    -fx-text-fill: -color-fondo;
+}
+
+.aplicacion .date-picker .selected{
+    -fx-background-color: -color-enlace;
+    -fx-text-fill: white;
+}
+
+.aplicacion .date-picker .selected:focused{
+    -fx-background-color: -color-enlace;
+    -fx-text-fill: white;
+}
+.aplicacion .date-picker-popup{
+    fx-border-color: transparent;
+}
+.aplicacion .date-picker-popup .month-year-pane{
+    -fx-background-color: -color-enlace;
+}
+.aplicacion .date-picker-popup .month-year-pane .label{
+    -fx-text-fill: -color-fondo;
+}
+.aplicacion .date-picker-popup .weeek-numbre-cell {
+    -fx-text-fill: -color-enlace;
+}
+.aplicacion .date-picker-popup .spinner .button .left-arrow,
+.aplicacion .date-picker-popup .spinner .button .right-arrow {
+    -fx-background-color: white;
+}
+
+    /* Menu */
+.aplicacion .menu-bar{
+    -fx-background-color: -color-fondo;
+    -fx-border-color: white;
+    -fx-border-radius: 5 5 5 5;
+}
+.aplicacion .menu:hover{
+    -fx-background-color: -color-fondo-boton-hover;
+}
+.aplicacion .menu-item{
+    -fx-background-color: -color-fondo;
+}
+.aplicacion .menu-item:hover{
+    -fx-background-color: -color-fondo-boton-hover;
+}
+
+    /* Tabble */
+.aplicacion .table-column {
+    -fx-background-color: -color-fondo-boton;
+    -fx-text-fill: white;
+}
+
+.aplicacion .table-view {
+    -fx-background-color: -color-fondo-boton;
+    -fx-text-fill: white;
+}
+.aplicacion .table-column .table-cell{
+    -fx-background-color: -color-fondo-boton-hover;
+}
+
+
+.aplicacion .table-view:hover {
+    -fx-background-color: -color-enlace;
+    -fx-text-fill: white;
+}
+
+    /* ScrollPane */
+.aplicacion .scroll-pane{
+    -fx-background-color: -color-fondo;
+
+}
+.aplicacion .scroll-bar:horizontal, .aplicacion .scroll-bar:vertical{
+    -fx-background-color: -color-fondo-boton;
+}
+.aplicacion .scroll-bar:horizontal .thumb, .aplicacion .scroll-bar:vertical .thumb{
+    -fx-background-color: -color-slider;
+}
+.aplicacion .scroll-pane > .corner{
+    -fx-background-color: -color-fondo-boton;
+}
+
+    .aplicacion .slider .track {
+        -fx-background-color: -color-fondo-boton;
+    }
+    .aplicacion .slider .thumb{
+        -fx-background-color: -color-slider;
+    }

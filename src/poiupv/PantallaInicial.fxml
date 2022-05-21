@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="371.0" styleClass="contrast" stylesheets="@../resources/estilos.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poiupv.PantallaInicialController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="371.0" styleClass="aplicacion" stylesheets="@../resources/estiloApp.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poiupv.PantallaInicialController">
    <top>
       <HBox alignment="CENTER" prefHeight="54.0" prefWidth="371.0" BorderPane.alignment="CENTER">
          <children>
@@ -21,9 +21,18 @@
    <center>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="registrofxID" mnemonicParsing="false" onAction="#bRegistro" text="Registro" />
-            <Button fx:id="incioSesionfxID" mnemonicParsing="false" onAction="#bInicioSesion" text="Inciar Sesión" />
-            <Button fx:id="salirfxID" mnemonicParsing="false" onAction="#bSalir" text="Salir" />
+            <Button fx:id="registrofxID" mnemonicParsing="false" onAction="#bRegistro" text="Registro">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Button fx:id="incioSesionfxID" mnemonicParsing="false" onAction="#bInicioSesion" text="Inciar Sesión">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button fx:id="salirfxID" mnemonicParsing="false" onAction="#bSalir" text="Salir">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
          </children>
       </HBox>
    </center>
