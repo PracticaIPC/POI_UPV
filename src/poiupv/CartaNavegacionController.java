@@ -42,7 +42,11 @@ import javafx.scene.text.Text;
 /**
  * FXML Controller class
  *
- * @author User
+ *  Proyecto Realizado por:
+ * - Francisco Ramos Guardiola
+ * - Álvaro Camino Tirapu
+ * - Carmen Martínez Rodríguez
+ * GRUPO: 2F - L1
  */
 public class CartaNavegacionController implements Initializable {
 
@@ -373,6 +377,11 @@ public class CartaNavegacionController implements Initializable {
         baseY = cuadradofxID.getTranslateY();
         
         event.consume();
+    }
+
+    @FXML
+    private void muestraPosicion(MouseEvent event) {
+        posicionfxID.setText("sceneX: " + (int) event.getSceneX() + ", sceneY: " + (int) event.getSceneY());
     }
     
 }

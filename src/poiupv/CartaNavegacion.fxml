@@ -79,7 +79,7 @@
             </VBox>
          </left>
          <center>
-            <ScrollPane fx:id="map_scrollpane" scaleShape="false" BorderPane.alignment="CENTER">
+            <ScrollPane fx:id="map_scrollpane" onMouseMoved="#muestraPosicion" scaleShape="false" BorderPane.alignment="CENTER">
                <content>
                   <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseDragged="#mouseDragged" onMouseExited="#bSalirMouse" onMousePressed="#mousePressed">
                      <children>

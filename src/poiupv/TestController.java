@@ -156,6 +156,7 @@ public class TestController implements Initializable {
         if(j == i){
             j = rnd.nextInt(17) + 1;
         }else{
+            
             preguntafxID.setText(BaseDatos.getProblems().get(j).getText());
             resp1fxID.setText(BaseDatos.getProblems().get(j).getAnswers().get(0).getText());
             resp2fxID.setText(BaseDatos.getProblems().get(j).getAnswers().get(1).getText());
@@ -163,7 +164,7 @@ public class TestController implements Initializable {
             resp4fxID.setText(BaseDatos.getProblems().get(j).getAnswers().get(3).getText());
         }
         
-        
+        i = j;
         
     }
 
@@ -354,8 +355,6 @@ public class TestController implements Initializable {
             resp3fxID.setSelected(false);
             resp1fxID.setSelected(false);
             resp4fxID.setSelected(false);
-            
-            comprobarfxID.setDisable(true);
     }
     
 }
