@@ -13,6 +13,8 @@ import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -67,9 +69,10 @@ public class TestController implements Initializable {
     Navegacion BaseDatos;
     
     boolean resultado;
+    boolean seleccion;
     
     Random rnd = new Random();
-    int  i = rnd.nextInt(17) + 1;
+    int  i = rnd.nextInt(17) + 0;
     @FXML
     private MenuItem FinalizarfxID;
     @FXML
@@ -83,6 +86,11 @@ public class TestController implements Initializable {
     int fallos = 0;
     @FXML
     private CheckBox sinSeleccionfxID;
+    
+    private ObservableList<Integer> list = FXCollections.observableArrayList();
+    int contador = 0;
+    @FXML
+    private MenuItem salirfxID;
 
     /**
      * Initializes the controller class.
@@ -106,7 +114,17 @@ public class TestController implements Initializable {
         resp4fxID.setText(BaseDatos.getProblems().get(i).getAnswers().get(3).getText());
         
         resultfxID.setVisible(false);
-        comprobarfxID.setDisable(true);
+        comprobarfxID.setDisable(false);
+        siguientePreguntafxID.setDisable(true);
+        
+        resultado = false;
+        seleccion = false;
+        
+        resp1fxID.setDisable(false);
+            resp2fxID.setDisable(false);
+            resp3fxID.setDisable(false);
+            resp4fxID.setDisable(false);
+            sinSeleccionfxID.setDisable(false);
         
         
 
@@ -145,18 +163,26 @@ public class TestController implements Initializable {
         sinSeleccionfxID.setSelected(false);
         resultfxID.setVisible(false);
         
-        comprobarfxID.setDisable(true);
+        comprobarfxID.setDisable(false);
+        siguientePreguntafxID.setDisable(true);
+        
+        resultado = false;
+        seleccion = false;
         
         resp1fxID.setTextFill(Color.WHITE);
         resp2fxID.setTextFill(Color.WHITE);
         resp3fxID.setTextFill(Color.WHITE);
         resp4fxID.setTextFill(Color.WHITE);
-        int j = rnd.nextInt(17)  +1;
+        int j;
+        
+        do{
+            j = rnd.nextInt(5) + 1;
+        }while(compruebaPregunta(j));
         
         if(j == i){
             j = rnd.nextInt(17) + 1;
         }else{
-            
+            contador +=1;
             preguntafxID.setText(BaseDatos.getProblems().get(j).getText());
             resp1fxID.setText(BaseDatos.getProblems().get(j).getAnswers().get(0).getText());
             resp2fxID.setText(BaseDatos.getProblems().get(j).getAnswers().get(1).getText());
@@ -164,7 +190,26 @@ public class TestController implements Initializable {
             resp4fxID.setText(BaseDatos.getProblems().get(j).getAnswers().get(3).getText());
         }
         
+        if(contador >= 18){
+            preguntafxID.setText("Ya has respondido todas las preguntas pulsa a Guardar Sesion en el menu Sesión para guardar los aciertos y los fallos \n" + 
+                    "O pulse salir sin guardar o cambiar de usuario en elmenu Sesion para salir sin guardar");
+            resp1fxID.setText("");
+            resp2fxID.setText("");
+            resp3fxID.setText("");
+            resp4fxID.setText("");
+            sinSeleccionfxID.setText("");
+            
+            resp1fxID.setDisable(true);
+            resp2fxID.setDisable(true);
+            resp3fxID.setDisable(true);
+            resp4fxID.setDisable(true);
+            sinSeleccionfxID.setDisable(true);
+            
+            comprobarfxID.setDisable(true);
+            siguientePreguntafxID.setDisable(true);
+        }
         i = j;
+        
         
     }
 
@@ -175,9 +220,9 @@ public class TestController implements Initializable {
             resp3fxID.setSelected(false);
             resp4fxID.setSelected(false);
             sinSeleccionfxID.setSelected(false);
-            comprobarfxID.setDisable(false);
             
             resultado = BaseDatos.getProblems().get(i).getAnswers().get(0).getValidity();
+            seleccion = true;
         }
         
     }
@@ -189,9 +234,9 @@ public class TestController implements Initializable {
             resp3fxID.setSelected(false);
             resp4fxID.setSelected(false);
             sinSeleccionfxID.setSelected(false);
-            comprobarfxID.setDisable(false);
             
             resultado = BaseDatos.getProblems().get(i).getAnswers().get(1).getValidity();
+            seleccion = true;
         }
     }
 
@@ -202,8 +247,9 @@ public class TestController implements Initializable {
             resp1fxID.setSelected(false);
             resp4fxID.setSelected(false);
             sinSeleccionfxID.setSelected(false);
-            comprobarfxID.setDisable(false);
+            
             resultado = BaseDatos.getProblems().get(i).getAnswers().get(2).getValidity();
+            seleccion = true;
         }
     }
 
@@ -215,8 +261,8 @@ public class TestController implements Initializable {
             resp1fxID.setSelected(false);
             sinSeleccionfxID.setSelected(false);
             
-            comprobarfxID.setDisable(false);
             resultado = BaseDatos.getProblems().get(i).getAnswers().get(3).getValidity();
+            seleccion = true;
             
         }
     }
@@ -253,84 +299,102 @@ public class TestController implements Initializable {
         alert.setResizable(true);
         alert.setHeaderText("Como Usar la carta de navegación");
         alert.setTitle("Información");
-        alert.setContentText("Para Guardar la partida pulse en el menu Sesión a Finalizar \n" + "Para Cambiar de Usuario pulse en el menu Sesión a Cambiar Usuario \n" +
+        alert.setContentText("Para Guardar la partida pulse en el menu Sesión a Guardar Sesión \n" + "Para Cambiar de Usuario pulse en el menu Sesión a Cambiar Usuario sin guardar la partia \n" +
+                "Para salir sin Guardar pulse en el menú Sesión a Salir sin Guardar \n" + 
                 "En el menu Herramientas puedes acceder a una Carta de Navegación que puede servir de ayuda para realizar el test \n" +
                 "Para comprobar que la respuesta es correcta y se añada la respuesta pulse comprobar\n" + "Para pasar a la siguiente pregunta pulse Siguiente Pregunta\n" +
-                "Para dejar en blanco seleccionar Dejar en Blanco o sin seleccionar ninguna pregunta pulse Siguiente Pregunta \n" +
-                "Si pulsa siguiente pregunta sin comprobar la respuesta no se guardara el resultado de esta");
+                "Para dejar en blanco seleccionar Dejar en Blanco");
         alert.showAndWait();
         
     }
 
     @FXML
     private void bComprobar(ActionEvent event) {
-        if(resultado == false){
-            
-            resultfxID.setText("Incorrecto");
-            resultfxID.setTextFill(Color.PINK);
-            resultfxID.setVisible(true);
-            fallos += 1;
-            if(resp4fxID.isSelected()){
-                resp4fxID.setTextFill(Color.PINK);
-                if(BaseDatos.getProblems().get(i).getAnswers().get(0).getValidity() == true){
+        if(seleccion == true){
+            if(resultado == false){
+
+                resultfxID.setText("Incorrecto");
+                resultfxID.setTextFill(Color.PINK);
+                resultfxID.setVisible(true);
+                fallos += 1;
+                if(resp4fxID.isSelected()){
+                    resp4fxID.setTextFill(Color.PINK);
+                    if(BaseDatos.getProblems().get(i).getAnswers().get(0).getValidity() == true){
+                        resp1fxID.setTextFill(Color.LIGHTGREEN);
+                    }else if(BaseDatos.getProblems().get(i).getAnswers().get(1).getValidity() == true){
+                        resp2fxID.setTextFill(Color.LIGHTGREEN);
+                    }else if(BaseDatos.getProblems().get(i).getAnswers().get(2).getValidity() == true){
+                        resp3fxID.setTextFill(Color.LIGHTGREEN);
+                    }
+                }
+                if(resp1fxID.isSelected()){
+                    resp1fxID.setTextFill(Color.PINK);
+                    if(BaseDatos.getProblems().get(i).getAnswers().get(3).getValidity() == true){
+                        resp4fxID.setTextFill(Color.LIGHTGREEN);
+                    }else if(BaseDatos.getProblems().get(i).getAnswers().get(1).getValidity() == true){
+                        resp2fxID.setTextFill(Color.LIGHTGREEN);
+                    }else if(BaseDatos.getProblems().get(i).getAnswers().get(2).getValidity() == true){
+                        resp3fxID.setTextFill(Color.LIGHTGREEN);
+                    }
+                }
+                if(resp2fxID.isSelected()){
+                    resp2fxID.setTextFill(Color.PINK);
+                    if(BaseDatos.getProblems().get(i).getAnswers().get(0).getValidity() == true){
+                        resp1fxID.setTextFill(Color.LIGHTGREEN);
+                    }else if(BaseDatos.getProblems().get(i).getAnswers().get(3).getValidity() == true){
+                        resp4fxID.setTextFill(Color.LIGHTGREEN);
+                    }else if(BaseDatos.getProblems().get(i).getAnswers().get(2).getValidity() == true){
+                        resp3fxID.setTextFill(Color.LIGHTGREEN);
+                    }
+                }
+                if(resp3fxID.isSelected()){
+                    resp3fxID.setTextFill(Color.PINK);
+                    if(BaseDatos.getProblems().get(i).getAnswers().get(0).getValidity() == true){
+                        resp1fxID.setTextFill(Color.LIGHTGREEN);
+                    }else if(BaseDatos.getProblems().get(i).getAnswers().get(1).getValidity() == true){
+                        resp2fxID.setTextFill(Color.LIGHTGREEN);
+                    }else if(BaseDatos.getProblems().get(i).getAnswers().get(3).getValidity() == true){
+                        resp4fxID.setTextFill(Color.LIGHTGREEN);
+                    }
+                }
+                comprobarfxID.setDisable(true);
+                siguientePreguntafxID.setDisable(false);
+            }else{
+                resultfxID.setText("Correcto");
+                resultfxID.setTextFill(Color.LIGHTGREEN);
+                resultfxID.setVisible(true);
+                aciertos += 1;
+                if(resp4fxID.isSelected()){
+                    resp4fxID.setTextFill(Color.LIGHTGREEN);
+                }
+                if(resp1fxID.isSelected()){
                     resp1fxID.setTextFill(Color.LIGHTGREEN);
-                }else if(BaseDatos.getProblems().get(i).getAnswers().get(1).getValidity() == true){
+                }
+                if(resp2fxID.isSelected()){
                     resp2fxID.setTextFill(Color.LIGHTGREEN);
-                }else if(BaseDatos.getProblems().get(i).getAnswers().get(2).getValidity() == true){
+                }
+                if(resp3fxID.isSelected()){
                     resp3fxID.setTextFill(Color.LIGHTGREEN);
                 }
-            }
-            if(resp1fxID.isSelected()){
-                resp1fxID.setTextFill(Color.PINK);
-                if(BaseDatos.getProblems().get(i).getAnswers().get(3).getValidity() == true){
-                    resp4fxID.setTextFill(Color.LIGHTGREEN);
-                }else if(BaseDatos.getProblems().get(i).getAnswers().get(1).getValidity() == true){
-                    resp2fxID.setTextFill(Color.LIGHTGREEN);
-                }else if(BaseDatos.getProblems().get(i).getAnswers().get(2).getValidity() == true){
-                    resp3fxID.setTextFill(Color.LIGHTGREEN);
-                }
-            }
-            if(resp2fxID.isSelected()){
-                resp2fxID.setTextFill(Color.PINK);
-                if(BaseDatos.getProblems().get(i).getAnswers().get(0).getValidity() == true){
-                    resp1fxID.setTextFill(Color.LIGHTGREEN);
-                }else if(BaseDatos.getProblems().get(i).getAnswers().get(3).getValidity() == true){
-                    resp4fxID.setTextFill(Color.LIGHTGREEN);
-                }else if(BaseDatos.getProblems().get(i).getAnswers().get(2).getValidity() == true){
-                    resp3fxID.setTextFill(Color.LIGHTGREEN);
-                }
-            }
-            if(resp3fxID.isSelected()){
-                resp3fxID.setTextFill(Color.PINK);
-                if(BaseDatos.getProblems().get(i).getAnswers().get(0).getValidity() == true){
-                    resp1fxID.setTextFill(Color.LIGHTGREEN);
-                }else if(BaseDatos.getProblems().get(i).getAnswers().get(1).getValidity() == true){
-                    resp2fxID.setTextFill(Color.LIGHTGREEN);
-                }else if(BaseDatos.getProblems().get(i).getAnswers().get(3).getValidity() == true){
-                    resp4fxID.setTextFill(Color.LIGHTGREEN);
-                }
+                comprobarfxID.setDisable(true);
+                siguientePreguntafxID.setDisable(false);
             }
         }else{
-            resultfxID.setText("Correcto");
-            resultfxID.setTextFill(Color.LIGHTGREEN);
-            resultfxID.setVisible(true);
-            aciertos += 1;
-            if(resp4fxID.isSelected()){
-                resp4fxID.setTextFill(Color.LIGHTGREEN);
-            }
-            if(resp1fxID.isSelected()){
-                resp1fxID.setTextFill(Color.LIGHTGREEN);
-            }
-            if(resp2fxID.isSelected()){
-                resp2fxID.setTextFill(Color.LIGHTGREEN);
-            }
-            if(resp3fxID.isSelected()){
-                resp3fxID.setTextFill(Color.LIGHTGREEN);
+            if(resultado == true){
+                resultfxID.setText("Respuesta en Blanco");
+                resultfxID.setTextFill(Color.WHITE);
+                resultfxID.setVisible(true);
+                
+                comprobarfxID.setDisable(true);
+                siguientePreguntafxID.setDisable(false);
+            }else{
+                Alert alerta = new Alert(Alert.AlertType.ERROR);
+                alerta.setTitle("ERROR");
+                alerta.setContentText("Para comprobar la solucion y pasar a la siguiente pregunta selecciona una respuesta o pregunta en blanco");
+                alerta.showAndWait();
+
             }
         }
-        
-        
-        comprobarfxID.setDisable(true);
     }
 
     @FXML
@@ -351,10 +415,41 @@ public class TestController implements Initializable {
 
     @FXML
     private void bsinSeleccion(ActionEvent event) {
-        resp2fxID.setSelected(false);
+        if(sinSeleccionfxID.isSelected()){
+            resp2fxID.setSelected(false);
             resp3fxID.setSelected(false);
             resp1fxID.setSelected(false);
             resp4fxID.setSelected(false);
+            
+            seleccion = false;
+            resultado = true;
+        }
+        
     }
     
+    private boolean compruebaPregunta(int num){
+        boolean res= false;
+        for(int z = 0; z < list.size(); z++){
+            if(num == list.get(z)){
+                res = true;
+            }
+        }
+        return res;
+    }
+
+    @FXML
+    private void bSalir(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MostrarUsuario.fxml"));
+            Parent root = loader.load();
+            
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.show();
+            stage.setTitle("ModificarUsuario");
+            
+            Stage myStage = (Stage) this.comprobarfxID.getScene().getWindow();
+            myStage.close();
+    }
 }

@@ -24,8 +24,9 @@
               <menus>
                 <Menu mnemonicParsing="false" style="-fx-text-fill: black;" text="Sesión">
                      <items>
-                        <MenuItem fx:id="FinalizarfxID" mnemonicParsing="false" onAction="#bFinalizar" text="Finalizar" />
+                        <MenuItem fx:id="FinalizarfxID" mnemonicParsing="false" onAction="#bFinalizar" text="Guardar Sesion" />
                         <MenuItem fx:id="cambiarUsuariofxID" mnemonicParsing="false" onAction="#bCambiarUsuario" text="Cambiar Usuario" />
+                        <MenuItem fx:id="salirfxID" mnemonicParsing="false" onAction="#bSalir" text="Salir sin Guardar" />
                      </items></Menu>
                 <Menu mnemonicParsing="false" text="Herramientas">
                      <items>
